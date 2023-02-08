@@ -1,8 +1,16 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react'
+import Loading from '../../components/Loading'
 import useGetAllPlayers from '../../queries/useGetAllPlayers'
 import { Player } from '../../types/player'
 
 const Home = () => {
+  const { data: playerData, isLoading } = useGetAllPlayers()
+
+  // This can be moved later on in the component that displays the data
+  if (isLoading) {
+    return <Loading />
+  }
+
   return (
     <Box>
       <Text>Home Page</Text>
