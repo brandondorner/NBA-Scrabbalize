@@ -6,10 +6,9 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'plugin:prettier/recommended',
-    'plugin:@typescript-eslint/recommended'
+    'plugin:@typescript-eslint/recommended',
     'prettier/prettier',
-    'standard-with-typescript',
-
+    'standard-with-typescript'
   ],
   overrides: [
     {
@@ -33,6 +32,8 @@ module.exports = {
     'import/order': [1, { groups: ['external', 'builtin', 'internal', 'sibling', 'parent', 'index'] }],
     indent: ['error', 2],
     'linebreak-style': ['error', 'unix'],
+    'multiline-ternary': 'off',
+    'no-console': ['error', { allow: ['warn', 'error'] }],
     'prettier/prettier': 'error',
     quotes: ['error', 'single'],
     'react/react-in-jsx-scope': 'off',
