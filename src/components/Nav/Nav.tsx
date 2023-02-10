@@ -13,7 +13,7 @@ const NavLink = ({ route }: { route: NavRoute }) => (
   <Link
     px={2}
     py={1}
-    rounded={'md'}
+    rounded={'sm'}
     _hover={{
       textDecoration: 'none',
       bg: useColorModeValue('gray.200', 'gray.700')
@@ -31,17 +31,17 @@ const Nav = () => {
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
-            size={'md'}
+            size={'sm'}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
             aria-label={'Open Menu'}
-            display={{ md: 'none' }}
+            display={{ sm: 'none' }}
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack
             justifyContent={'space-between'}
             as={'nav'}
             spacing={4}
-            display={{ base: 'none', md: 'flex' }}
+            display={{ base: 'none', sm: 'flex' }}
             width="100%"
           >
             <Flex>
