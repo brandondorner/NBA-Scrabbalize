@@ -1,9 +1,20 @@
-import { Team } from './team'
-
 export type Player = {
-  first_name: string
+  careerBlocks: number
+  careerPercentageFieldGoal: number
+  careerPercentageFreethrow: number
+  careerPercentageThree: number
+  careerPoints: number
+  careerRebounds: number
+  careerTurnovers: number
+  carrerAssists: number
+  dateOfBirth: string
+  firstName: string
+  headShotUrl: string
+  height: string
   id: number
-  last_name: string
+  jerseyNumber: string
+  lastName: string
   position: string
-  team: Team
+  team: string | null
+  weight: string
 }

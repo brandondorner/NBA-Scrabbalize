@@ -5,7 +5,7 @@ import axios, { type AxiosError } from 'axios'
 // setting our baseUrl to rapidApi here.
 // Same with the API Keys
 const axiosClient = axios.create({
-  baseURL: 'https://free-nba.p.rapidapi.com',
+  baseURL: 'https://nba-player-individual-stats.p.rapidapi.com',
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',

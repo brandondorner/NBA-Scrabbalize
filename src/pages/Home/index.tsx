@@ -14,19 +14,21 @@ const Home = () => {
   return (
     <Box>
       <Text>Home Page</Text>
-      {playerData.map((player: Player) => (
-        <Flex key={`player-${player.id}`}>
-          <Heading as="h3">
-            {player.first_name} {player.last_name}
-          </Heading>
-          <Text as="span" paddingLeft={'4px'}>
-            {player.position}
-          </Text>
-          <Text as="span" paddingLeft={'4px'}>
-            {player.team.abbreviation}
-          </Text>
-        </Flex>
-      ))}
+      {playerData.map((player: Player) => {
+        return (
+          <Flex key={`player-${player.id}`}>
+            <Heading as="h3">
+              {player.firstName} {player.lastName}
+            </Heading>
+            <Text as="span" paddingLeft={'4px'}>
+              {player.position}
+            </Text>
+            <Text as="span" paddingLeft={'4px'}>
+              {player?.team?.abbreviation ?? 'N/A'}
+            </Text>
+          </Flex>
+        )
+      })}
     </Box>
   )
 }

@@ -1,8 +1,8 @@
 export type Team = {
-  abbreviation: string
-  city: string
-  conference: 'East' | 'West'
+  conference: 'Eastern' | 'Western'
   division: string
   id: number
   name: string
+  record: string
+  teamLogoUrl: string
 }

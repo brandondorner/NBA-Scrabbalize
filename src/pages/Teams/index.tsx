@@ -16,11 +16,9 @@ const Teams = () => {
       <Text>Teams Page</Text>
       {teamsData.map((team: Team) => (
         <Flex key={`team-${team.id}`}>
-          <Heading as="h3">
-            {team.city} {team.name}
-          </Heading>
+          <Heading as="h3">{team.name}</Heading>
           <Text as="span" paddingLeft={'4px'}>
-            {team.abbreviation}
+            {team.record}
           </Text>
         </Flex>
       ))}

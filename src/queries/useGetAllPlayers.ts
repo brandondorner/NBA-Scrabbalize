@@ -8,7 +8,7 @@ const useGetAllPlayers = () => {
   })
 
   return {
-    data: response.data?.data?.data,
+    data: response.data?.data,
     isLoading: response.isLoading
   }
 }
