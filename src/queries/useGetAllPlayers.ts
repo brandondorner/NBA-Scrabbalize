@@ -7,8 +7,10 @@ const useGetAllPlayers = () => {
     queryFn: async () => await axiosClient.get('/players')
   })
 
+  const filteredResponse = filterNullData({ data: response.data?.data, filterParam: 'firstName' })
+
   return {
-    data: response.data?.data,
+    data: filteredResponse,
     isLoading: response.isLoading
   }
 }
