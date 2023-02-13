@@ -1,16 +1,20 @@
 import { useQuery } from '@tanstack/react-query'
 import axiosClient from '../network/axiosClient'
+import { Player } from '../types/player'
 
-const useGetAllPlayers = () => {
+type ReturnValue = {
+  data: Player[]
+  isLoading: boolean
+}
+
+const useGetAllPlayers = (): ReturnValue => {
   const response = useQuery({
     queryKey: ['players'],
     queryFn: async () => await axiosClient.get('/players')
   })
 
-  const filteredResponse = filterNullData({ data: response.data?.data, filterParam: 'firstName' })
-
   return {
-    data: filteredResponse,
+    data: response.data?.data,
     isLoading: response.isLoading
   }
 }

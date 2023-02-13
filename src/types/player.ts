@@ -14,6 +14,7 @@ export type Player = {
   id: number
   jerseyNumber: string
   lastName: string
+  name: string
   position: string
   team: string | null
   weight: string
