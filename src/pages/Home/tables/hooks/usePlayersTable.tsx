@@ -1,10 +1,9 @@
 import { useMemo } from 'react'
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table'
 import { Image, Text } from '@chakra-ui/react'
-import useGetAllPlayers from '../../../../queries/useGetAllPlayers'
 import { Player } from '../../../../types/player'
 import PlayerAvatar from '../../../../assets/images/player_avatar.png'
-import useCleanedUpPlayerData from '../../../../hooks/useCleanedUpPlayerData'
+import useAllPlayers from '../../../../hooks/useAllPlayers'
 
 type ReturnType = {
   data: Player[]
@@ -13,8 +12,7 @@ type ReturnType = {
 }
 
 const usePlayersTable = (): ReturnType => {
-  const { data: rawPlayerData, isLoading } = useGetAllPlayers()
-  const data = useCleanedUpPlayerData({ data: rawPlayerData })
+  const { players, isLoading } = useAllPlayers()
   const columnHelper = createColumnHelper<Player>()
 
   const columns = useMemo(
@@ -50,7 +48,7 @@ const usePlayersTable = (): ReturnType => {
   )
 
   return {
-    data,
+    data: players,
     columns,
     isLoading
   }
