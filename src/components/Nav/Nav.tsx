@@ -49,11 +49,10 @@ const Nav = () => {
                 <NavLink key={route.title} route={route} />
               ))}
             </Flex>
-
-            <RouterLink to="/">
-              <Image cursor={'pointer'} height={10} src={basketballImage} alt="Home" />
-            </RouterLink>
           </HStack>
+          <RouterLink to="/">
+            <Image maxW={'initial'} cursor={'pointer'} height={10} src={basketballImage} alt="Home" />
+          </RouterLink>
         </Flex>
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
