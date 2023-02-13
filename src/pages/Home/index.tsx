@@ -1,10 +1,10 @@
-import { Box, Flex, Heading, Text } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
+import usePlayersTable from './tables/hooks/usePlayersTable'
 import Loading from '../../components/Loading'
-import useGetAllPlayers from '../../queries/useGetAllPlayers'
-import { Player } from '../../types/player'
+import Table from '../../components/Table'
 
 const Home = () => {
-  const { data: playerData, isLoading } = useGetAllPlayers()
+  const { data, columns, isLoading } = usePlayersTable()
 
   // This can be moved later on in the component that displays the data
   if (isLoading) {
@@ -13,22 +13,7 @@ const Home = () => {
 
   return (
     <Box>
-      <Text>Home Page</Text>
-      {playerData.map((player: Player) => {
-        return (
-          <Flex key={`player-${player.id}`}>
-            <Heading as="h3">
-              {player.firstName} {player.lastName}
-            </Heading>
-            <Text as="span" paddingLeft={'4px'}>
-              {player.position}
-            </Text>
-            <Text as="span" paddingLeft={'4px'}>
-              {player?.team?.abbreviation ?? 'N/A'}
-            </Text>
-          </Flex>
-        )
-      })}
+      <Table data={data} columns={columns} />
     </Box>
   )
 }

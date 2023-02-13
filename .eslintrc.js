@@ -46,11 +46,15 @@ module.exports = {
     ],
     '@typescript-eslint/consistent-type-definitions': 'off',
     '@typescript-eslint/consistent-type-imports': 'off',
+    '@typescript-eslint/member-delimiter-style': 'off',
     '@typescript-eslint/explicit-function-return-type': [
       'error',
       {
         allowExpressions: true
       }
-    ]
+    ],
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/restrict-template-expressions': 'off',
+    '@typescript-eslint/strict-boolean-expressions': 'off'
   }
 }
