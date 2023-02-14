@@ -53,6 +53,7 @@ module.exports = {
         allowExpressions: true
       }
     ],
+    '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/restrict-template-expressions': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off'

@@ -1,18 +1,14 @@
 import { useMemo } from 'react'
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table'
-import { Image, Text } from '@chakra-ui/react'
+import { Image } from '@chakra-ui/react'
 import { Player } from '../../../../types/player'
 import PlayerAvatar from '../../../../assets/images/player_avatar.png'
-import useAllPlayers from '../../../../hooks/useAllPlayers'
 
 type ReturnType = {
-  data: Player[]
   columns: Array<ColumnDef<Player, any>>
-  isLoading: boolean
 }
 
-const usePlayersTable = (): ReturnType => {
-  const { players, isLoading } = useAllPlayers()
+const usePlayersColumns = (): ReturnType => {
   const columnHelper = createColumnHelper<Player>()
 
   const columns = useMemo(
@@ -29,11 +25,7 @@ const usePlayersTable = (): ReturnType => {
       },
       {
         accessorKey: 'name',
-        cell: ({ row }: { row: { original: { name: string } } }) => (
-          <Text as={'span'} cursor="pointer">
-            {row.original.name}
-          </Text>
-        ),
+        cell: ({ row }: { row: { original: { name: string } } }) => row.original.name,
         enableSorting: true,
         header: 'Name'
       },
@@ -48,10 +40,8 @@ const usePlayersTable = (): ReturnType => {
   )
 
   return {
-    data: players,
-    columns,
-    isLoading
+    columns
   }
 }
 
-export default usePlayersTable
+export default usePlayersColumns

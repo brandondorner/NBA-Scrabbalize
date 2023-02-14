@@ -20,6 +20,7 @@
     "framer-motion": "^9.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-infinite-scroll-component": "^6.1.0",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "react-table": "^7.8.0",
@@ -50,6 +51,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-table": "^7.7.14",
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "eslint": "^8.33.0",
     "eslint-config-prettier": "^8.6.0",
