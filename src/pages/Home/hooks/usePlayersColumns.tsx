@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table'
 import { Image } from '@chakra-ui/react'
-import { Player } from '../../../../types/player'
-import PlayerAvatar from '../../../../assets/images/player_avatar.png'
+import { Player } from '../../../types/player'
+import PlayerAvatar from '../../../assets/images/player_avatar.png'
 
 type ReturnType = {
   columns: Array<ColumnDef<Player, any>>

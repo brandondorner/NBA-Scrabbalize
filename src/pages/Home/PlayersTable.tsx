@@ -1,4 +1,4 @@
-import usePlayersColumns from './tables/hooks/usePlayersColumns'
+import usePlayersColumns from './hooks/usePlayersColumns'
 import Loading from '../../components/Loading'
 import Table from '../../components/Table'
 import useAllPlayers from '../../hooks/useAllPlayers'
