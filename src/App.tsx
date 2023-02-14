@@ -7,13 +7,16 @@ import Teams from './pages/Teams'
 
 const App = () => {
   return (
-    <Box backgroundColor={'##f6f6f6'} margin="5%">
+    <Box minH="100vh" minW="100vw" backgroundColor={'white.500'}>
+      {/* <Box minH="100vh" minW="100vw"  padding="2%"> */}
       <Nav />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/teams" element={<Teams />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Box padding="2%">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/teams" element={<Teams />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Box>
     </Box>
   )
 }
