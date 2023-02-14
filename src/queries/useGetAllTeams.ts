@@ -1,7 +1,13 @@
 import { useQuery } from '@tanstack/react-query'
 import axiosClient from '../network/axiosClient'
+import { Team } from '../types/team'
 
-const useGetAllTeams = () => {
+type ReturnValue = {
+  data: Team[]
+  isLoading: boolean
+}
+
+const useGetAllTeams = (): ReturnValue => {
   const response = useQuery({
     queryKey: ['teams'],
     queryFn: async () => await axiosClient.get('/teams')
