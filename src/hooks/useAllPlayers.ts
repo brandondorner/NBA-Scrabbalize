@@ -4,6 +4,7 @@ import { PaginationValues } from '../types/paginationValues'
 import { Player } from '../types/player'
 import extractData from '../util/extractData'
 import filterNullData from '../util/filterNullData'
+import scrabbalizeWord from '../util/scrabbalizeWord'
 
 type ReturnValue = {
   isLoading: boolean
@@ -31,12 +32,13 @@ const useAllPlayers = (): ReturnValue => {
     setTotalPlayers(filteredPlayers.length)
   }, [filteredPlayers])
 
-  const playersWithName = filteredPlayers.map((player) => ({
-    name: `${player.firstName} ${player.lastName}`,
-    ...player
-  }))
+  const playersWithNameAndScore = filteredPlayers.map((player) => {
+    const name = `${player.firstName} ${player.lastName}`
+    return { name, score: scrabbalizeWord(name), ...player }
+  })
 
-  const displayedPlayers = data ? extractData({ data: playersWithName, currentPage, perPage }) : []
+  const sortedPlayers = playersWithNameAndScore.sort((player1, player2) => (player1.score < player2.score ? 1 : -1))
+  const displayedPlayers = data ? extractData({ data: sortedPlayers, currentPage, perPage }) : []
 
   return {
     paginationValues,

@@ -34,6 +34,12 @@ const usePlayersColumns = (): ReturnType => {
         cell: ({ row }: { row: { original: { position: string } } }) => row.original.position,
         enableSorting: true,
         header: 'Position'
+      },
+      {
+        accessorKey: 'score',
+        cell: ({ row }: { row: { original: { score: number } } }) => row.original.score,
+        enableSorting: true,
+        header: 'Scrabble Score'
       }
     ],
     [columnHelper]

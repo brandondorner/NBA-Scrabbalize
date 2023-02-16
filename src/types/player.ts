@@ -16,6 +16,7 @@ export type Player = {
   lastName: string
   name: string
   position: string
+  score: number
   team: string | null
   weight: string
 }
