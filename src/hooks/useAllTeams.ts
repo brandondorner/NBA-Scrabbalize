@@ -4,6 +4,7 @@ import { PaginationValues } from '../types/paginationValues'
 import { Team } from '../types/team'
 import extractData from '../util/extractData'
 import filterNullData from '../util/filterNullData'
+import scrabbalizeWord from '../util/scrabbalizeWord'
 
 type ReturnValue = {
   isLoading: boolean
@@ -31,7 +32,11 @@ const useAllTeams = (): ReturnValue => {
     setTotalTeams(filteredTeams.length)
   }, [filteredTeams])
 
-  const displayedTeams = filteredTeams ? extractData({ data: filteredTeams, currentPage, perPage }) : []
+  const teamsWithScore = filteredTeams.map((team) => {
+    return { ...team, score: scrabbalizeWord(team.name) }
+  })
+
+  const displayedTeams = teamsWithScore ? extractData({ data: teamsWithScore, currentPage, perPage }) : []
 
   return {
     paginationValues,

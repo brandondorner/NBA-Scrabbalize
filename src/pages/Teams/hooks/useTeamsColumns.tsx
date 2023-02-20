@@ -33,8 +33,14 @@ const useTeamsColumns = (): ReturnType => {
       {
         accessorKey: 'record',
         cell: ({ row }: { row: { original: { record: string } } }) => row.original.record,
-        enableSorting: true,
+        enableSorting: false,
         header: 'Record '
+      },
+      {
+        accessorKey: 'score',
+        cell: ({ row }: { row: { original: { score: number } } }) => row.original.score,
+        enableSorting: true,
+        header: 'Scrabble Score'
       }
     ],
     [columnHelper]

@@ -4,5 +4,6 @@ export type Team = {
   id: number
   name: string
   record: string
+  score: number
   teamLogoUrl: string
 }
