@@ -4,6 +4,7 @@ import { PaginationValues } from '../types/paginationValues'
 import { Player } from '../types/player'
 import extractData from '../util/extractData'
 import filterNullData from '../util/filterNullData'
+import filterDuplicatePlayerData from '../util/filterPlayerDuplicate'
 import scrabbalizeWord from '../util/scrabbalizeWord'
 
 type ReturnValue = {
@@ -26,7 +27,8 @@ const useAllPlayers = (): ReturnValue => {
 
   const { data, isLoading } = useGetAllPlayers()
 
-  const filteredPlayers = filterNullData({ data, filterParam: 'firstName' })
+  const filteredNullPlayers = filterNullData({ data, filterParam: 'firstName' })
+  const filteredPlayers = filterDuplicatePlayerData(filteredNullPlayers)
 
   useEffect(() => {
     setTotalPlayers(filteredPlayers.length)
@@ -34,7 +36,7 @@ const useAllPlayers = (): ReturnValue => {
 
   const playersWithNameAndScore = filteredPlayers.map((player) => {
     const name = `${player.firstName} ${player.lastName}`
-    return { name, score: scrabbalizeWord(name), ...player }
+    return { ...player, name, score: scrabbalizeWord(name) }
   })
 
   const sortedPlayers = playersWithNameAndScore.sort((player1, player2) => (player1.score < player2.score ? 1 : -1))
