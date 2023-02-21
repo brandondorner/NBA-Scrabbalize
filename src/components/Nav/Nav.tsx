@@ -14,6 +14,7 @@ const NavLink = ({ route }: { route: NavRoute }) => (
     px={2}
     py={1}
     rounded={'sm'}
+    cursor="default"
     _hover={{
       textDecoration: 'none',
       bg: useColorModeValue('gray.200', 'gray.700')
