@@ -22,7 +22,7 @@ export type DataTableProps = {
   totalItems: number
 }
 
-const Table = ({ columns, data, paginationValues, totalItems }: DataTableProps) => {
+const InfiniteScrollTable = ({ columns, data, paginationValues, totalItems }: DataTableProps) => {
   const [sorting, setSorting] = useState<SortingState>([])
   const { currentPage, setCurrentPage } = paginationValues
   const isDataFullyLoaded = data.length === totalItems
@@ -93,4 +93,4 @@ const Table = ({ columns, data, paginationValues, totalItems }: DataTableProps) 
     </Box>
   )
 }
-export default Table
+export default InfiniteScrollTable

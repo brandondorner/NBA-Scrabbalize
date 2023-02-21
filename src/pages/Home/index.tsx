@@ -1,10 +1,10 @@
 import { Box } from '@chakra-ui/react'
-import PlayersTable from './PlayersTable'
+import InfiniteScrollPlayersTable from './InfiniteScrollPlayersTable'
 
 const Home = () => {
   return (
     <Box>
-      <PlayersTable />
+      <InfiniteScrollPlayersTable />
     </Box>
   )
 }
