@@ -1,15 +1,26 @@
 import { useMemo } from 'react'
-import { ColumnDef, createColumnHelper } from '@tanstack/react-table'
+import { ColumnDef, createColumnHelper, Row } from '@tanstack/react-table'
 import { Image } from '@chakra-ui/react'
 import { Player } from '../../../types/player'
 import PlayerAvatar from '../../../assets/images/player_avatar.png'
 
-type ReturnType = {
-  columns: Array<ColumnDef<Player, any>>
+type Props = {
+  enableSorting?: boolean
 }
 
-const usePlayersColumns = (): ReturnType => {
+type ReturnType = {
+  columns: Array<ColumnDef<Player, any>> | any
+}
+
+const usePlayersColumns = ({ enableSorting = false }: Props): ReturnType => {
   const columnHelper = createColumnHelper<Player>()
+
+  // The react-table fallback sorting is goes by the string row.id which does not work for comparing
+  // numbers because it's comparing strings. So instead we must make a custom sorting function to
+  // sort by the index which can never be the same, removing the need for a fallback.
+  const sortByIndex = (player1: Row<{ index: number }>, player2: Row<{ index: number }>) => {
+    return player1.index > player2.index ? 1 : -1
+  }
 
   const columns = useMemo(
     () => [
@@ -26,20 +37,23 @@ const usePlayersColumns = (): ReturnType => {
       {
         accessorKey: 'name',
         cell: ({ row }: { row: { original: { name: string } } }) => row.original.name,
-        enableSorting: true,
+        enableSorting,
         header: 'Name'
       },
       {
         accessorKey: 'position',
         cell: ({ row }: { row: { original: { position: string } } }) => row.original.position,
-        enableSorting: true,
+        enableSorting,
         header: 'Position'
       },
       {
         accessorKey: 'score',
         cell: ({ row }: { row: { original: { score: number } } }) => row.original.score,
-        enableSorting: true,
-        header: 'Scrabble Score'
+        enableSorting,
+        header: 'Scrabble Score',
+        sortingFn: (player1: Row<{ index: number }>, player2: Row<{ index: number }>) => {
+          return sortByIndex(player1, player2)
+        }
       }
     ],
     [columnHelper]
