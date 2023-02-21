@@ -25,6 +25,16 @@ const usePlayersColumns = ({ enableSorting = false }: Props): ReturnType => {
   const columns = useMemo(
     () => [
       {
+        accessorKey: 'score',
+        cell: ({ row }: { row: { index: number } }) => row.index + 1,
+        enableSorting,
+        header: 'Ranking',
+        id: 'index',
+        sortingFn: (player1: Row<{ index: number }>, player2: Row<{ index: number }>) => {
+          return sortByIndex(player1, player2)
+        }
+      },
+      {
         accessorKey: 'headShotUrl',
         cell: ({ row }: { row: { original: { headShotUrl: string } } }) => (
           <Image maxW={'90px'} src={row.original.headShotUrl} fallbackSrc={PlayerAvatar} />
