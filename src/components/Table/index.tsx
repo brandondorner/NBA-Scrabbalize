@@ -87,6 +87,9 @@ const Table = ({ columns, data, paginationValues, totalItems }: DataTableProps) 
           </Tbody>
         </ChakraTable>
       </InfiniteScroll>
+      <Box backgroundColor={'gray.200'} py={2} pr={4} textAlign={'right'} width={'100%'}>
+        Displaying {data.length} of {totalItems} rows
+      </Box>
     </Box>
   )
 }
