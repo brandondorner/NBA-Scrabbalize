@@ -5,7 +5,7 @@ import useAllPlayers from '../../hooks/useAllPlayers'
 
 const InfiniteScrollPlayersTable = () => {
   const { columns } = usePlayersColumns({})
-  const { isLoading, players, paginationValues, totalPlayers } = useAllPlayers()
+  const { isLoading, players, paginationValues, totalPlayers } = useAllPlayers({ displayAllData: true })
 
   if (isLoading) {
     return <Loading />

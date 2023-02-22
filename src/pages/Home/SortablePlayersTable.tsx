@@ -5,7 +5,7 @@ import SortableTable from '../../components/Table/SortableTable'
 
 const SortablePlayersTable = () => {
   const { columns } = usePlayersColumns({ enableSorting: true })
-  const { isLoading, players } = useAllPlayers()
+  const { isLoading, players } = useAllPlayers({})
 
   if (isLoading) {
     return <Loading />
