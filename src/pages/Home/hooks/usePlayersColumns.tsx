@@ -47,6 +47,12 @@ const usePlayersColumns = ({ enableSorting = false }: Props): ReturnType => {
         header: 'Position'
       },
       {
+        accessorKey: 'team',
+        cell: ({ row }: { row: { original: { team: string } } }) => row.original.team,
+        enableSorting,
+        header: 'Team'
+      },
+      {
         accessorKey: 'ranking',
         cell: ({ row }: { row: { original: { score: number } } }) => row.original.score,
         enableSorting,
