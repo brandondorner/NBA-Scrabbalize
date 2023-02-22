@@ -44,8 +44,11 @@ const useAllPlayers = ({ displayAllData }: Props): ReturnValue => {
     perPage: PER_PAGE,
     totalPages
   }
+
+  // The api has some bad data we need to filter through
   const filteredNullPlayers = filterNullData({ data, filterParam: 'firstName' })
-  const filteredPlayers = filterDuplicatePlayerData(filteredNullPlayers)
+  const filteredActivePlayers = filterNullData({ data: filteredNullPlayers, filterParam: 'team' })
+  const filteredPlayers = filterDuplicatePlayerData(filteredActivePlayers)
 
   useEffect(() => {
     setTotalPlayers(filteredPlayers.length)
