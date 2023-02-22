@@ -40,7 +40,8 @@ const useAllPlayers = (): ReturnValue => {
   })
 
   const sortedPlayers = playersWithNameAndScore.sort((player1, player2) => (player1.score < player2.score ? 1 : -1))
-  const displayedPlayers = data ? extractData({ data: sortedPlayers, currentPage, perPage }) : []
+  const sortedPlayersWithRankings = sortedPlayers.map((player, index) => ({ ...player, ranking: index + 1 }))
+  const displayedPlayers = data ? extractData({ data: sortedPlayersWithRankings, currentPage, perPage }) : []
 
   return {
     paginationValues,
