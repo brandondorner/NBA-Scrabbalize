@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import { Box } from '@chakra-ui/react'
-import Home from './pages/Home'
+import Players from './pages/Players'
 import NotFound from './pages/NotFound'
 import Nav from './components/Nav/Nav'
 import Teams from './pages/Teams'
@@ -12,7 +12,7 @@ const App = () => {
       <Nav />
       <Box padding="2%">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Players />} />
           <Route path="/teams" element={<Teams />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -7,6 +7,8 @@ const InfiniteScrollPlayersTable = () => {
   const { columns } = usePlayersColumns({})
   const { isLoading, players, paginationValues, totalPlayers } = useAllPlayers({ displayAllData: true })
 
+  // maybe pass this into the table component below.
+  // so that the table frame loads and shows the loading icon inside the table
   if (isLoading) {
     return <Loading />
   }

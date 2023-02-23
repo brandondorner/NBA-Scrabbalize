@@ -36,6 +36,7 @@ const usePlayersColumns = ({ enableSorting = false }: Props): ReturnType => {
       },
       {
         accessorKey: 'name',
+        // maybe make all of these types Partial<Player> or something
         cell: ({ row }: { row: { original: { name: string } } }) => row.original.name,
         enableSorting,
         header: 'Name'
