@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import useGetAllTeams from '../queries/useGetAllTeams'
 import { PaginationValues } from '../types/paginationValues'
 import { Team } from '../types/team'
 import extractData from '../util/extractData'
 import filterNullData from '../util/filterNullData'
 import scrabbalizeWord from '../util/scrabbalizeWord'
+
+const PER_PAGE = 25
 
 type ReturnValue = {
   isLoading: boolean
@@ -13,18 +15,35 @@ type ReturnValue = {
   totalTeams: number
 }
 
-const useAllTeams = (): ReturnValue => {
+type Props = {
+  displayAllData?: boolean
+}
+
+const useAllTeams = ({ displayAllData }: Props): ReturnValue => {
   const [currentPage, setCurrentPage] = useState(1)
   const [totalTeams, setTotalTeams] = useState(0)
-  const perPage = 25
+
+  const totalPages = useMemo(() => {
+    return Math.ceil(totalTeams / PER_PAGE)
+  }, [totalTeams, PER_PAGE])
+
+  const { data, isLoading } = useGetAllTeams()
+
+  const isLastPlayerLoaded = useMemo(() => {
+    if (isLoading) {
+      return false
+    }
+    return currentPage * PER_PAGE >= data.length
+  }, [currentPage, isLoading, PER_PAGE])
 
   const paginationValues = {
     currentPage,
+    isLastPlayerLoaded,
     setCurrentPage,
-    perPage
+    perPage: PER_PAGE,
+    totalPages
   }
 
-  const { data, isLoading } = useGetAllTeams()
 
   const filteredTeams = filterNullData({ data, filterParam: 'name' })
 
@@ -35,8 +54,11 @@ const useAllTeams = (): ReturnValue => {
   const teamsWithScore = filteredTeams.map((team) => {
     return { ...team, score: scrabbalizeWord(team.name) }
   })
-
-  const displayedTeams = teamsWithScore ? extractData({ data: teamsWithScore, currentPage, perPage }) : []
+  const sortedTeams = teamsWithScore.sort((team1, team2) => (team1.score < team2.score ? 1 : -1))
+  const sortedTeamsWithRankings = sortedTeams.map((team, index) => ({ ...team, ranking: index + 1 }))
+  const displayedTeams = sortedTeamsWithRankings
+    ? extractData({ currentPage, data: sortedTeamsWithRankings, displayAllData, perPage: PER_PAGE })
+    : []
 
   return {
     paginationValues,

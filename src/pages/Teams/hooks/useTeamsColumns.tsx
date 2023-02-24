@@ -4,19 +4,30 @@ import { Image } from '@chakra-ui/react'
 import PlayerAvatar from '../../../assets/images/player_avatar.png'
 import { Team } from '../../../types/team'
 
+type Props = {
+  enableSorting?: boolean
+}
+
 type ReturnType = {
   columns: Array<ColumnDef<Team, any>>
 }
 
-const useTeamsColumns = (): ReturnType => {
+const useTeamsColumns = ({ enableSorting = false }: Props): ReturnType => {
   const columnHelper = createColumnHelper<Team>()
 
   const columns = useMemo(
     () => [
       {
+        accessorKey: 'ranking',
+        cell: ({ row }: { row: { original: { ranking: number } } }) => row.original.ranking,
+        enableSorting,
+        header: 'Ranking',
+        id: 'index'
+      },
+      {
         accessorKey: 'teamLogoUrl',
         cell: ({ row }: { row: { original: { teamLogoUrl: string } } }) => (
-          // change PlayerAvatar here to something else
+          // TODO change PlayerAvatar here to something else
           <Image maxW={'90px'} src={row.original.teamLogoUrl} fallbackSrc={PlayerAvatar} />
         ),
         enableSorting: false,
@@ -27,7 +38,7 @@ const useTeamsColumns = (): ReturnType => {
       {
         accessorKey: 'name',
         cell: ({ row }: { row: { original: { name: string } } }) => row.original.name,
-        enableSorting: true,
+        enableSorting,
         header: 'Name'
       },
       {
@@ -39,7 +50,7 @@ const useTeamsColumns = (): ReturnType => {
       {
         accessorKey: 'score',
         cell: ({ row }: { row: { original: { score: number } } }) => row.original.score,
-        enableSorting: true,
+        enableSorting,
         header: 'Scrabble Score'
       }
     ],
