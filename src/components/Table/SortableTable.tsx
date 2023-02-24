@@ -25,8 +25,7 @@ const SortableTable = ({ columns, data }: Props) => {
   })
 
   return (
-    <Box border={'solid 1px black'} display="block" overflowY={'auto'} height="500px">
-      Top 25 (Sortable Table)
+    <Box border={'solid 1px black'} display="block" overflowY={'auto'} height="550px">
       <TableContent table={table} />
     </Box>
   )

@@ -8,13 +8,14 @@ type Props = {
 
 const TableContent = ({ table }: Props) => {
   return (
-    <ChakraTable variant="striped" colorScheme="gray">
+    <ChakraTable variant="striped" colorScheme="whiteAlpha">
       <Thead>
         {table.getHeaderGroups().map((headerGroup) => (
-          <Tr backgroundColor={'gray.200'} key={headerGroup.id} position="sticky" top="0">
+          <Tr backgroundColor={'gray.100'} key={headerGroup.id} position="sticky" top="0">
             {headerGroup.headers.map((header) => {
               return (
                 <Th
+                  color={'black'}
                   key={header.id}
                   onClick={header.column.getToggleSortingHandler()}
                   cursor={header.column.columnDef.enableSorting ? 'pointer' : 'default'}

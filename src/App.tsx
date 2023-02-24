@@ -7,7 +7,7 @@ import Teams from './pages/Teams'
 
 const App = () => {
   return (
-    <Box minH="100vh" minW="100vw" backgroundColor={'white.500'}>
+    <Box color={'whiteAlpha.900'} minH="100vh" minW="100vw" backgroundColor={'gray.800'}>
       {/* <Box minH="100vh" minW="100vw"  padding="2%"> */}
       <Nav />
       <Box padding="2%">

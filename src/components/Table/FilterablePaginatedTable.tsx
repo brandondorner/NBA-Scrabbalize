@@ -51,9 +51,8 @@ const FilterablePaginatedTable = ({ columns, data, paginationValues }: Props) =>
   }
 
   return (
-    <>
-      <Box border={'solid 1px black'} display="block" overflowY={'auto'} height="500px">
-        Paginated Table With Filtering
+    <Box>
+      <Box border={'solid 1px black'} display="block" overflowY={'auto'} height="550px">
         <TableContent table={table} />
       </Box>
       <Flex border={'solid 1px black'} borderTopWidth={0} justifyContent="space-between" padding={2} width={'100%'}>
@@ -135,7 +134,7 @@ const FilterablePaginatedTable = ({ columns, data, paginationValues }: Props) =>
           </Text>
         </Flex>
       </Flex>
-    </>
+    </Box>
   )
 }
 export default FilterablePaginatedTable

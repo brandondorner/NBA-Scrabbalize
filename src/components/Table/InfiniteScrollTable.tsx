@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Text } from '@chakra-ui/react'
 import { ColumnDef, getCoreRowModel, getSortedRowModel, SortingState, useReactTable } from '@tanstack/react-table'
 import { useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
@@ -32,22 +32,30 @@ const InfiniteScrollTable = ({ columns, data, paginationValues, totalItems }: Pr
   })
 
   return (
-    <Box border={'solid 1px black'}>
-      <InfiniteScroll
-        dataLength={data.length}
-        height={500}
-        next={() => {
-          setCurrentPage(currentPage + 1)
-        }}
-        hasMore={!isDataFullyLoaded}
-        loader={<Loading />}
-      >
-        <TableContent table={table} />
-      </InfiniteScroll>
-      <Box backgroundColor={'gray.200'} py={2} pr={4} textAlign={'right'} width={'100%'}>
-        Displaying {data.length} of {totalItems} rows
+    <>
+      <Box border={'solid 1px black'}>
+        <InfiniteScroll
+          dataLength={data.length}
+          height={550}
+          next={() => {
+            setCurrentPage(currentPage + 1)
+          }}
+          hasMore={!isDataFullyLoaded}
+          loader={<Loading />}
+        >
+          <TableContent table={table} />
+        </InfiniteScroll>
       </Box>
-    </Box>
+      <Box border={'solid 1px black'} borderTopWidth={0} py={2} pr={4} textAlign={'right'} width={'100%'}>
+        <Text>
+          Displaying{' '}
+          <Text as="b">
+            {data.length} of {totalItems}{' '}
+          </Text>
+          rows
+        </Text>
+      </Box>
+    </>
   )
 }
 export default InfiniteScrollTable
