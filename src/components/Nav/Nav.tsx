@@ -1,6 +1,20 @@
 import { Link as RouterLink } from 'react-router-dom'
-import { Box, Flex, HStack, IconButton, Image, Link, Stack, useColorModeValue, useDisclosure } from '@chakra-ui/react'
-import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
+import {
+  Box,
+  Button,
+  Flex,
+  HStack,
+  IconButton,
+  Image,
+  Link,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Stack,
+  useDisclosure
+} from '@chakra-ui/react'
+import { ChevronDownIcon, CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
 import navRoutes from './navRoutes'
 import basketballImage from '../../assets/images/basketball.png'
 
@@ -9,18 +23,20 @@ type NavRoute = {
   to: string
 }
 
-const NavLink = ({ route }: { route: NavRoute }) => (
+const NavLink = ({ close, route }: { close: () => void; route: NavRoute }) => (
   <Link
-    px={2}
+    color={'black'}
+    px={3}
     py={1}
     rounded={'sm'}
     cursor="default"
     _hover={{
-      textDecoration: 'none',
-      bg: useColorModeValue('gray.200', 'gray.700')
+      textDecoration: 'none'
     }}
   >
-    <RouterLink to={route.to}>{route.title}</RouterLink>
+    <RouterLink onClick={close} to={route.to}>
+      {route.title}
+    </RouterLink>
   </Link>
 )
 
@@ -29,14 +45,15 @@ const Nav = () => {
 
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+      <Box px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
-            size={'sm'}
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
             aria-label={'Open Menu'}
+            bg="gray.800"
             display={{ sm: 'none' }}
+            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
             onClick={isOpen ? onClose : onOpen}
+            size={'sm'}
           />
           <HStack
             justifyContent={'space-between'}
@@ -45,9 +62,37 @@ const Nav = () => {
             display={{ base: 'none', sm: 'flex' }}
             width="100%"
           >
-            <Flex>
-              {navRoutes.map((route) => (
-                <NavLink key={route.title} route={route} />
+            <Flex gap={2}>
+              {navRoutes.map((routeMenu) => (
+                <Menu key={routeMenu.label}>
+                  {({ onClose: close }) => (
+                    <>
+                      <MenuButton
+                        as={Button}
+                        backgroundColor="inherit"
+                        _expanded={{
+                          bg: 'gray.200',
+                          color: 'black'
+                        }}
+                        _hover={{
+                          bg: 'gray.200',
+                          color: 'black',
+                          textDecoration: 'none'
+                        }}
+                        rightIcon={<ChevronDownIcon />}
+                      >
+                        {routeMenu.label}
+                      </MenuButton>
+                      <MenuList display={'flex'} flexDirection="column" padding={0} rowGap="2px">
+                        {routeMenu.routes.map((route) => (
+                          <MenuItem key={route.title}>
+                            <NavLink close={close} route={route} />
+                          </MenuItem>
+                        ))}
+                      </MenuList>
+                    </>
+                  )}
+                </Menu>
               ))}
             </Flex>
           </HStack>
@@ -58,8 +103,32 @@ const Nav = () => {
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
-              {navRoutes.map((route) => (
-                <NavLink key={route.title} route={route} />
+              {navRoutes.map((routeMenu) => (
+                <Menu key={routeMenu.label}>
+                  <MenuButton
+                    as={Button}
+                    backgroundColor="inherit"
+                    _expanded={{
+                      bg: 'gray.200',
+                      color: 'black'
+                    }}
+                    _hover={{
+                      bg: 'gray.200',
+                      color: 'black',
+                      textDecoration: 'none'
+                    }}
+                    rightIcon={<ChevronDownIcon />}
+                  >
+                    {routeMenu.label}
+                  </MenuButton>
+                  <MenuList display={'flex'} flexDirection="column" padding={0} rowGap="2px">
+                    {routeMenu.routes.map((route) => (
+                      <MenuItem key={route.title}>
+                        <NavLink close={close} route={route} />
+                      </MenuItem>
+                    ))}
+                  </MenuList>
+                </Menu>
               ))}
             </Stack>
           </Box>
