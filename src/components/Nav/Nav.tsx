@@ -1,51 +1,15 @@
 import { Link as RouterLink } from 'react-router-dom'
-import {
-  Box,
-  Button,
-  Flex,
-  HStack,
-  IconButton,
-  Image,
-  Link,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  Stack,
-  useDisclosure
-} from '@chakra-ui/react'
-import { ChevronDownIcon, CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
-import navRoutes from './navRoutes'
+import { Box, Flex, HStack, IconButton, Image, Stack, useDisclosure } from '@chakra-ui/react'
+import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
+import NavDropdown from './NavDropdown'
 import basketballImage from '../../assets/images/basketball.png'
-
-type NavRoute = {
-  title: string
-  to: string
-}
-
-const NavLink = ({ close, route }: { close: () => void; route: NavRoute }) => (
-  <Link
-    color={'black'}
-    px={3}
-    py={1}
-    rounded={'sm'}
-    cursor="default"
-    _hover={{
-      textDecoration: 'none'
-    }}
-  >
-    <RouterLink onClick={close} to={route.to}>
-      {route.title}
-    </RouterLink>
-  </Link>
-)
 
 const Nav = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
     <>
-      <Box px={4}>
+      <Box fontWeight={'semibold'} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             aria-label={'Open Menu'}
@@ -63,37 +27,7 @@ const Nav = () => {
             width="100%"
           >
             <Flex gap={2}>
-              {navRoutes.map((routeMenu) => (
-                <Menu key={routeMenu.label}>
-                  {({ onClose: close }) => (
-                    <>
-                      <MenuButton
-                        as={Button}
-                        backgroundColor="inherit"
-                        _expanded={{
-                          bg: 'gray.200',
-                          color: 'black'
-                        }}
-                        _hover={{
-                          bg: 'gray.200',
-                          color: 'black',
-                          textDecoration: 'none'
-                        }}
-                        rightIcon={<ChevronDownIcon />}
-                      >
-                        {routeMenu.label}
-                      </MenuButton>
-                      <MenuList display={'flex'} flexDirection="column" padding={0} rowGap="2px">
-                        {routeMenu.routes.map((route) => (
-                          <MenuItem key={route.title}>
-                            <NavLink close={close} route={route} />
-                          </MenuItem>
-                        ))}
-                      </MenuList>
-                    </>
-                  )}
-                </Menu>
-              ))}
+              <NavDropdown />
             </Flex>
           </HStack>
           <RouterLink to="/">
@@ -103,33 +37,7 @@ const Nav = () => {
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
-              {navRoutes.map((routeMenu) => (
-                <Menu key={routeMenu.label}>
-                  <MenuButton
-                    as={Button}
-                    backgroundColor="inherit"
-                    _expanded={{
-                      bg: 'gray.200',
-                      color: 'black'
-                    }}
-                    _hover={{
-                      bg: 'gray.200',
-                      color: 'black',
-                      textDecoration: 'none'
-                    }}
-                    rightIcon={<ChevronDownIcon />}
-                  >
-                    {routeMenu.label}
-                  </MenuButton>
-                  <MenuList display={'flex'} flexDirection="column" padding={0} rowGap="2px">
-                    {routeMenu.routes.map((route) => (
-                      <MenuItem key={route.title}>
-                        <NavLink close={close} route={route} />
-                      </MenuItem>
-                    ))}
-                  </MenuList>
-                </Menu>
-              ))}
+              <NavDropdown />
             </Stack>
           </Box>
         ) : null}
