@@ -1,20 +1,15 @@
-import { Box, ButtonGroup, Flex, Heading, Image } from '@chakra-ui/react'
+import { Box, Flex } from '@chakra-ui/react'
 import { useState } from 'react'
 import RenderedPlayerTable from './RenderedPlayerTable'
-import Scrabbalize from '../../assets/images/scrabbalize.svg'
 import VariantButton from '../../components/VariantButton'
+import Header from '../../components/Header'
 
 const Players = () => {
   const [displayedTable, setDisplayedTable] = useState('basic')
 
   return (
     <Flex flexDirection={'column'}>
-      <Flex alignItems={'center'} flexDirection="column" gap={8} justifyContent={'center'} pb={16}>
-        <Image src={Scrabbalize} />
-        <Heading size="lg" textAlign={'center'}>
-          Ranking the NBA in terms of Scrabble scores.{' '}
-        </Heading>
-      </Flex>
+      <Header page="player" />
       <Box>
         <ButtonGroup
           display="flex"
