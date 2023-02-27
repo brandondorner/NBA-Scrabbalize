@@ -1,15 +1,17 @@
 import { useMemo } from 'react'
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table'
-import { Image } from '@chakra-ui/react'
+import { Flex, Image, Text, Tooltip } from '@chakra-ui/react'
+import { QuestionIcon } from '@chakra-ui/icons'
 import PlayerAvatar from '../../../assets/images/player_avatar.png'
 import { Team } from '../../../types/team'
+import ScoringTooltip from '../../../components/ScoringToolTip'
 
 type Props = {
   enableSorting?: boolean
 }
 
 type ReturnType = {
-  columns: Array<ColumnDef<Team, any>>
+  columns: Array<ColumnDef<Team, any>> | any
 }
 
 const useTeamsColumns = ({ enableSorting = false }: Props): ReturnType => {
@@ -51,7 +53,14 @@ const useTeamsColumns = ({ enableSorting = false }: Props): ReturnType => {
         accessorKey: 'score',
         cell: ({ row }: { row: { original: { score: number } } }) => row.original.score,
         enableSorting,
-        header: 'Scrabble Score'
+        header: (
+          <Flex alignItems={'center'} gap={2}>
+            <Text>Scrabble Score</Text>
+            <Tooltip label={<ScoringTooltip tableType={'team'} />}>
+              <QuestionIcon />
+            </Tooltip>
+          </Flex>
+        )
       }
     ],
     [columnHelper]
