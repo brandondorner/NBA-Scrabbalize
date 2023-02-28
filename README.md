@@ -1,3 +1,5 @@
+[Live Demo](https://brandondorner.github.io/NBA-Scrabbalize)
+
 # NBA Scrabbalize
 ## Ranking the NBA based off of teams' and players' name converted to Scrabble scores.
 
