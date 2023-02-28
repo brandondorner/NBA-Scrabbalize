@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/nba-scrabbalize/static/css/main.e6c13ad2.css",
+    "main.js": "/nba-scrabbalize/static/js/main.29a7523a.js",
+    "static/media/basketball.png": "/nba-scrabbalize/static/media/basketball.a17885990ba9ef864aee.png",
+    "static/media/scrabbalize.svg": "/nba-scrabbalize/static/media/scrabbalize.7ff5cf275f238605b99d5524ce889821.svg",
+    "index.html": "/nba-scrabbalize/index.html",
+    "main.e6c13ad2.css.map": "/nba-scrabbalize/static/css/main.e6c13ad2.css.map",
+    "main.29a7523a.js.map": "/nba-scrabbalize/static/js/main.29a7523a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.29a7523a.js"
+  ]
+}
