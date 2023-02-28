@@ -1,5 +1,5 @@
 /* eslint-disable indent */
-import FilterablePaginatedPlayersTable from './Tables/FilterablePaginatedPlayersTable'
+import PaginatedPlayersTable from './Tables/PaginatedPlayersTable'
 import InfiniteScrollPlayersTable from './Tables/InfiniteScrollPlayersTable'
 import SortablePlayersTable from './Tables/SortablePlayersTable'
 
@@ -12,7 +12,7 @@ const RenderedPlayerTable = ({ displayedTable }: Props) => {
     case 'infiniteScroll':
       return <InfiniteScrollPlayersTable />
     case 'paginated':
-      return <FilterablePaginatedPlayersTable />
+      return <PaginatedPlayersTable />
     default:
       return <SortablePlayersTable />
   }

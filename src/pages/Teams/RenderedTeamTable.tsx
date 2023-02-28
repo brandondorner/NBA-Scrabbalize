@@ -1,5 +1,5 @@
 /* eslint-disable indent */
-import FilterablePaginatedTeamsTable from './Tables/FilterablePaginatedTeamsTable'
+import PaginatedTeamsTable from './Tables/PaginatedTeamsTable'
 import InfiniteScrollTeamsTable from './Tables/InfiniteScrollTeamsTable'
 import SortableTeamsTable from './Tables/SortableTeamsTable'
 
@@ -12,7 +12,7 @@ const RenderedTeamTable = ({ displayedTable }: Props) => {
     case 'infiniteScroll':
       return <InfiniteScrollTeamsTable />
     case 'paginated':
-      return <FilterablePaginatedTeamsTable />
+      return <PaginatedTeamsTable />
     default:
       return <SortableTeamsTable />
   }

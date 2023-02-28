@@ -12,7 +12,7 @@ type Props = {
   paginationValues: PaginationValues
 }
 
-const FilterablePaginatedTable = ({ columns, data, paginationValues }: Props) => {
+const PaginatedTable = ({ columns, data, paginationValues }: Props) => {
   const [sorting, setSorting] = useState<SortingState>([])
   const [pageNumber, setPageNumber] = useState('1')
   const [error, setError] = useState('')
@@ -137,4 +137,4 @@ const FilterablePaginatedTable = ({ columns, data, paginationValues }: Props) =>
     </Box>
   )
 }
-export default FilterablePaginatedTable
+export default PaginatedTable

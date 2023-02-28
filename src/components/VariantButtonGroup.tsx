@@ -32,7 +32,7 @@ const VariantButtonGroup = ({ displayedTable, setDisplayedTable }: VariantButton
     <VariantButton
       displayedTable={displayedTable}
       setDisplayedTable={setDisplayedTable}
-      title="Filterable Paginated"
+      title="Paginated"
       type="paginated"
     />
   </ButtonGroup>

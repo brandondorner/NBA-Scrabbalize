@@ -1,9 +1,9 @@
 import usePlayersColumns from '../hooks/usePlayersColumns'
 import Loading from '../../../components/Loading'
 import useAllPlayers from '../../../hooks/useAllPlayers'
-import FilterablePaginatedTable from '../../../components/Table/FilterablePaginatedTable'
+import PaginatedTable from '../../../components/Table/PaginatedTable'
 
-const FilterablePaginatedPlayersTable = () => {
+const PaginatedPlayersTable = () => {
   const { columns } = usePlayersColumns({ enableSorting: true })
   const { isLoading, players, paginationValues } = useAllPlayers({})
 
@@ -11,7 +11,7 @@ const FilterablePaginatedPlayersTable = () => {
     return <Loading />
   }
 
-  return <FilterablePaginatedTable columns={columns} data={players} paginationValues={paginationValues} />
+  return <PaginatedTable columns={columns} data={players} paginationValues={paginationValues} />
 }
 
-export default FilterablePaginatedPlayersTable
+export default PaginatedPlayersTable
