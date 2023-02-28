@@ -2,14 +2,14 @@ import { Flex, Heading, Image } from '@chakra-ui/react'
 import Scrabbalize from '../assets/images/scrabbalize.svg'
 
 type Props = {
-  page: 'player' | 'team'
+  page: 'Player' | 'Team'
 }
 
 const Header = ({ page }: Props) => (
   <Flex alignItems={'center'} flexDirection="column" gap={8} justifyContent={'center'} pb={16}>
     <Image src={Scrabbalize} />
     <Heading size="lg" textAlign={'center'}>
-      Ranking the NBA by converting {page} names to Scrabble scores
+      Ranking The NBA By Converting {page} Names To Scrabble Scores
     </Heading>
   </Flex>
 )

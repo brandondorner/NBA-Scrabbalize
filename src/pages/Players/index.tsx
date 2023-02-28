@@ -9,7 +9,7 @@ const Players = () => {
 
   return (
     <Flex flexDirection={'column'}>
-      <Header page="player" />
+      <Header page="Player" />
       <Box>
         <VariantButtonGroup displayedTable={displayedTable} setDisplayedTable={setDisplayedTable} />
         <RenderedPlayerTable displayedTable={displayedTable} />
