@@ -1,10 +1,10 @@
 import { Box, Flex, FormControl, FormErrorMessage, FormLabel, IconButton, Input, Text } from '@chakra-ui/react'
 import { ColumnDef, getCoreRowModel, getSortedRowModel, SortingState, useReactTable } from '@tanstack/react-table'
 import { Fragment, useEffect, useState } from 'react'
+import { Player } from 'types/player'
+import { Team } from 'types/team'
+import { PaginationValues } from 'types/paginationValues'
 import TableContent from './TableContent'
-import { Player } from '../../types/player'
-import { Team } from '../../types/team'
-import { PaginationValues } from '../../types/paginationValues'
 
 type Props = {
   data: Player[] | Team[]
@@ -41,7 +41,7 @@ const PaginatedTable = ({ columns, data, paginationValues }: Props) => {
 
     const numberVal = Number(value)
 
-    if (numberVal < 1 || numberVal > totalPages!) {
+    if (numberVal < 1 || numberVal > totalPages) {
       setError(`Please enter a whole number between 1 and ${totalPages}.`)
       return
     }
@@ -122,7 +122,7 @@ const PaginatedTable = ({ columns, data, paginationValues }: Props) => {
             isDisabled={isLastPlayerLoaded}
             icon={<Fragment>{'>>'}</Fragment>}
             onClick={() => {
-              setCurrentPage(totalPages!)
+              setCurrentPage(totalPages)
             }}
             size={'sm'}
           />

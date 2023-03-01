@@ -1,4 +1,4 @@
-import { Player } from '../types/player'
+import { Player } from 'types/player'
 
 //  We need to filter out duplicate player data from the api response
 //  Ideally these changes would be made in the api but since we don't own it we can't change it

@@ -1,5 +1,5 @@
 import { Flex, GridItem, SimpleGrid, Text } from '@chakra-ui/react'
-import { ScrabbleValues } from '../types/scrabbleValues'
+import { ScrabbleValues } from 'types/scrabbleValues'
 
 type Props = {
   tableType: 'player' | 'team'

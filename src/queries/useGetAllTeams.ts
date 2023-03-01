@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
+import { Team } from 'types/team'
 import axiosClient from '../network/axiosClient'
-import { Team } from '../types/team'
 
 type ReturnValue = {
   data: Team[]

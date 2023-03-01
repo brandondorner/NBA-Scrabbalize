@@ -2,9 +2,9 @@ import { useMemo } from 'react'
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table'
 import { Flex, Image, Text, Tooltip } from '@chakra-ui/react'
 import { QuestionIcon } from '@chakra-ui/icons'
-import { Player } from '../../../types/player'
 import ScoringTooltip from 'components/ScoringToolTip'
 import PlayerAvatar from 'assets/images/player_avatar.png'
+import { Player } from 'types/player'
 
 type Props = {
   enableSorting?: boolean

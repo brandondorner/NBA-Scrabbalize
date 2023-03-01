@@ -1,4 +1,4 @@
-import { ScrabbleValues } from '../types/scrabbleValues'
+import { ScrabbleValues } from 'types/scrabbleValues'
 
 const scrabbalizeWord = (word: string): number => {
   const cleanWord = word.replace(/\s/g, '').toLowerCase()

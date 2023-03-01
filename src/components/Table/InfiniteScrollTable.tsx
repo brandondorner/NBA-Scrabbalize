@@ -2,10 +2,10 @@ import { Box, Text } from '@chakra-ui/react'
 import { ColumnDef, getCoreRowModel, getSortedRowModel, SortingState, useReactTable } from '@tanstack/react-table'
 import { useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
+import { PaginationValues } from 'types/paginationValues'
+import { Player } from 'types/player'
+import { Team } from 'types/team'
 import TableContent from './TableContent'
-import { PaginationValues } from '../../types/paginationValues'
-import { Player } from '../../types/player'
-import { Team } from '../../types/team'
 import Loading from '../Loading'
 
 type Props = {

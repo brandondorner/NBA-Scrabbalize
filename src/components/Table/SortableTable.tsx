@@ -1,9 +1,9 @@
 import { Box } from '@chakra-ui/react'
 import { ColumnDef, getCoreRowModel, getSortedRowModel, SortingState, useReactTable } from '@tanstack/react-table'
 import { useState } from 'react'
+import { Player } from 'types/player'
+import { Team } from 'types/team'
 import TableContent from './TableContent'
-import { Player } from '../../types/player'
-import { Team } from '../../types/team'
 
 type Props = {
   data: Player[] | Team[]

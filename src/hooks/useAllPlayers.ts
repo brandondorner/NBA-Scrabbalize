@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
+import { Player } from 'types/player'
+import { PaginationValues } from 'types/paginationValues'
 import extractData from 'util/extractData'
 import filterNullData from 'util/filterNullData'
 import filterDuplicatePlayerData from 'util/filterPlayerDuplicate'
 import scrabbalizeWord from 'util/scrabbalizeWord'
 import useGetAllPlayers from '../queries/useGetAllPlayers'
-import { PaginationValues } from '../types/paginationValues'
-import { Player } from '../types/player'
 
 const PER_PAGE = 25
 

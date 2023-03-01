@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
+import { PaginationValues } from 'types/paginationValues'
+import { Team } from 'types/team'
 import extractData from 'util/extractData'
 import filterNullData from 'util/filterNullData'
 import scrabbalizeWord from 'util/scrabbalizeWord'
 import useGetAllTeams from '../queries/useGetAllTeams'
-import { PaginationValues } from '../types/paginationValues'
-import { Team } from '../types/team'
 
 const PER_PAGE = 25
 
