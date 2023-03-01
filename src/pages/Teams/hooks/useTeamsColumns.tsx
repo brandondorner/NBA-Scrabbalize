@@ -4,7 +4,7 @@ import { Flex, Image, Text, Tooltip } from '@chakra-ui/react'
 import { QuestionIcon } from '@chakra-ui/icons'
 import PlayerAvatar from '../../../assets/images/player_avatar.png'
 import { Team } from '../../../types/team'
-import ScoringTooltip from '../../../components/ScoringToolTip'
+import ScoringTooltip from 'components/ScoringToolTip'
 
 type Props = {
   enableSorting?: boolean

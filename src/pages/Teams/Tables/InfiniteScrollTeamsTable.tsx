@@ -1,6 +1,6 @@
+import Loading from 'components/Loading'
+import InfiniteScrollTable from 'components/Table/InfiniteScrollTable'
 import useTeamsColumns from '../hooks/useTeamsColumns'
-import Loading from '../../../components/Loading'
-import InfiniteScrollTable from '../../../components/Table/InfiniteScrollTable'
 import useAllTeams from '../../../hooks/useAllTeams'
 
 const InfiniteScrollTeamsTable = () => {

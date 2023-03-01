@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom'
 import { Box } from '@chakra-ui/react'
+import Nav from 'components/Nav/Nav'
 import Players from './pages/Players'
 import NotFound from './pages/NotFound'
-import Nav from './components/Nav/Nav'
 import Teams from './pages/Teams'
 
 const App = () => {

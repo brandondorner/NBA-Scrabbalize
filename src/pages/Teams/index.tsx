@@ -1,8 +1,8 @@
 import { Box, Flex } from '@chakra-ui/react'
 import { useState } from 'react'
+import VariantButtonGroup from 'components/VariantButtonGroup'
+import Header from 'components/Header'
 import RenderedTeamTable from './RenderedTeamTable'
-import VariantButtonGroup from '../../components/VariantButtonGroup'
-import Header from '../../components/Header'
 
 const Teams = () => {
   const [displayedTable, setDisplayedTable] = useState('basic')

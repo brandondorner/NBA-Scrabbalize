@@ -1,7 +1,7 @@
+import Loading from 'components/Loading'
+import PaginatedTable from 'components/Table/PaginatedTable'
 import useTeamsColumns from '../hooks/useTeamsColumns'
-import Loading from '../../../components/Loading'
 import useAllTeams from '../../../hooks/useAllTeams'
-import PaginatedTable from '../../../components/Table/PaginatedTable'
 
 const PaginatedTeamsTable = () => {
   const { columns } = useTeamsColumns({ enableSorting: true })
