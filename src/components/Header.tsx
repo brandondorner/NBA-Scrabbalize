@@ -1,5 +1,5 @@
 import { Flex, Heading, Image } from '@chakra-ui/react'
-import Scrabbalize from '../assets/images/scrabbalize.svg'
+import Scrabbalize from 'assets/images/scrabbalize.svg'
 
 type Props = {
   page: 'Player' | 'Team'

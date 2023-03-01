@@ -1,8 +1,8 @@
 import { Link as RouterLink } from 'react-router-dom'
 import { Box, Flex, HStack, IconButton, Image, Stack, useDisclosure } from '@chakra-ui/react'
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
+import basketballImage from 'assets/images/basketball.png'
 import NavDropdown from './NavDropdown'
-import basketballImage from '../../assets/images/basketball.png'
 
 const Nav = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
