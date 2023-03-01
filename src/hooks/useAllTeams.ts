@@ -44,7 +44,6 @@ const useAllTeams = ({ displayAllData }: Props): ReturnValue => {
     totalPages
   }
 
-
   const filteredTeams = filterNullData({ data, filterParam: 'name' })
 
   useEffect(() => {

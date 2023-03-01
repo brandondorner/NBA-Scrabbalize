@@ -5,7 +5,7 @@ const navRoutes = [
       {
         to: '/',
         title: 'Player Rankings'
-      },
+      }
     ]
   },
   {
