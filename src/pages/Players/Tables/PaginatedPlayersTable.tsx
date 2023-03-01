@@ -1,7 +1,7 @@
 import PaginatedTable from 'components/Table/PaginatedTable'
 import Loading from 'components/Loading'
+import useAllPlayers from 'hooks/useAllPlayers'
 import usePlayersColumns from '../hooks/usePlayersColumns'
-import useAllPlayers from '../../../hooks/useAllPlayers'
 
 const PaginatedPlayersTable = () => {
   const { columns } = usePlayersColumns({ enableSorting: true })

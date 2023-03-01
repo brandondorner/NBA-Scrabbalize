@@ -1,7 +1,7 @@
 import Loading from 'components/Loading'
 import InfiniteScrollTable from 'components/Table/InfiniteScrollTable'
+import useAllPlayers from 'hooks/useAllPlayers'
 import usePlayersColumns from '../hooks/usePlayersColumns'
-import useAllPlayers from '../../../hooks/useAllPlayers'
 
 const InfiniteScrollPlayersTable = () => {
   const { columns } = usePlayersColumns({})

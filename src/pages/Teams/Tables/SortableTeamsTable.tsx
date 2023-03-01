@@ -1,6 +1,6 @@
-import useAllTeams from '../../../hooks/useAllTeams'
 import Loading from 'components/Loading'
 import SortableTable from 'components/Table/SortableTable'
+import useAllTeams from 'hooks/useAllTeams'
 import useTeamsColumns from '../hooks/useTeamsColumns'
 
 const SortableTeamsTable = () => {
