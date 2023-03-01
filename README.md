@@ -1,4 +1,4 @@
-[Live Demo](https://brandondorner.github.io/NBA-Scrabbalize)
+[Live Demo](https://dainty-kelpie-cbc8d7.netlify.app/)
 
 # NBA Scrabbalize
 ## Ranking the NBA based off of teams' and players' name converted to Scrabble scores.
