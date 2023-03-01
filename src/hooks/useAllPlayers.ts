@@ -35,13 +35,6 @@ const useAllPlayers = ({ displayAllData }: Props): ReturnValue => {
   const filteredActivePlayers = filterNullData({ data: filteredNullPlayers, filterParam: 'team' })
   const filteredPlayers = filterDuplicatePlayerData(filteredActivePlayers)
 
-  const isLastPlayerLoaded = useMemo(() => {
-    if (isLoading) {
-      return false
-    }
-    return currentPage * PER_PAGE >= filteredPlayers.length
-  }, [currentPage, isLoading, PER_PAGE])
-
   useEffect(() => {
     setTotalPlayers(filteredPlayers.length)
   }, [filteredPlayers])
@@ -59,7 +52,6 @@ const useAllPlayers = ({ displayAllData }: Props): ReturnValue => {
 
   const paginationValues = {
     currentPage,
-    isLastPlayerLoaded,
     setCurrentPage,
     perPage: PER_PAGE,
     totalPages

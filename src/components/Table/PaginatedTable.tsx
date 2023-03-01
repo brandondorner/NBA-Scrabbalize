@@ -17,8 +17,9 @@ const PaginatedTable = ({ columns, data, paginationValues }: Props) => {
   const [pageNumber, setPageNumber] = useState('1')
   const [error, setError] = useState('')
 
-  const { currentPage, isLastPlayerLoaded, setCurrentPage, totalPages } = paginationValues
+  const { currentPage, setCurrentPage, totalPages } = paginationValues
   const isFirstPage = currentPage === 1
+  const isLastPage = currentPage === totalPages
 
   useEffect(() => {
     setPageNumber(`${currentPage}`)
@@ -109,7 +110,7 @@ const PaginatedTable = ({ columns, data, paginationValues }: Props) => {
           <IconButton
             aria-label={'Next Page'}
             backgroundColor={'initial'}
-            isDisabled={isLastPlayerLoaded}
+            isDisabled={isLastPage}
             icon={<Fragment>{'>'}</Fragment>}
             onClick={() => {
               setCurrentPage(currentPage + 1)
@@ -119,7 +120,7 @@ const PaginatedTable = ({ columns, data, paginationValues }: Props) => {
           <IconButton
             aria-label={'Next Page'}
             backgroundColor={'initial'}
-            isDisabled={isLastPlayerLoaded}
+            isDisabled={isLastPage}
             icon={<Fragment>{'>>'}</Fragment>}
             onClick={() => {
               setCurrentPage(totalPages)
