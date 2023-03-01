@@ -5,5 +5,5 @@ export type PaginationValues = {
   isLastPlayerLoaded?: boolean
   perPage: number
   setCurrentPage: Dispatch<SetStateAction<number>>
-  totalPages?: number
+  totalPages: number
 }

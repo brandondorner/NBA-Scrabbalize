@@ -30,25 +30,17 @@ const useAllPlayers = ({ displayAllData }: Props): ReturnValue => {
 
   const { data, isLoading } = useGetAllPlayers()
 
-  const isLastPlayerLoaded = useMemo(() => {
-    if (isLoading) {
-      return false
-    }
-    return currentPage * PER_PAGE >= data.length
-  }, [currentPage, isLoading, PER_PAGE])
-
-  const paginationValues = {
-    currentPage,
-    isLastPlayerLoaded,
-    setCurrentPage,
-    perPage: PER_PAGE,
-    totalPages
-  }
-
   // The api has some bad data we need to filter through
   const filteredNullPlayers = filterNullData({ data, filterParam: 'firstName' })
   const filteredActivePlayers = filterNullData({ data: filteredNullPlayers, filterParam: 'team' })
   const filteredPlayers = filterDuplicatePlayerData(filteredActivePlayers)
+
+  const isLastPlayerLoaded = useMemo(() => {
+    if (isLoading) {
+      return false
+    }
+    return currentPage * PER_PAGE >= filteredPlayers.length
+  }, [currentPage, isLoading, PER_PAGE])
 
   useEffect(() => {
     setTotalPlayers(filteredPlayers.length)
@@ -64,6 +56,14 @@ const useAllPlayers = ({ displayAllData }: Props): ReturnValue => {
   const displayedPlayers = data
     ? extractData({ currentPage, data: sortedPlayersWithRankings, displayAllData, perPage: PER_PAGE })
     : []
+
+  const paginationValues = {
+    currentPage,
+    isLastPlayerLoaded,
+    setCurrentPage,
+    perPage: PER_PAGE,
+    totalPages
+  }
 
   return {
     paginationValues,
