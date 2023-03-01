@@ -20,6 +20,7 @@
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
       "@hooks/*": ["src/hooks/*"],
+      "@util/*": ["src/util/*"]
     }
   },
   "include": ["./src/**/*.ts", "./src/**/*.tsx", "./.eslintrc.js"]
