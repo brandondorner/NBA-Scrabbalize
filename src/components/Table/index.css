@@ -1,0 +1,7 @@
+/* The InfiniteScroll from `react-infinite-scroll-component` has some weird overflow properties
+that we need to overwrite from larger screens */
+@media (min-width:900px) {
+    .infinite-scroll-table  {
+        overflow-x: hidden !important;
+    }
+}
