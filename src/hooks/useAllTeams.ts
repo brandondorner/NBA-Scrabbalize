@@ -29,16 +29,8 @@ const useAllTeams = ({ displayAllData }: Props): ReturnValue => {
 
   const { data, isLoading } = useGetAllTeams()
 
-  const isLastPlayerLoaded = useMemo(() => {
-    if (isLoading) {
-      return false
-    }
-    return currentPage * PER_PAGE >= data.length
-  }, [currentPage, isLoading, PER_PAGE])
-
   const paginationValues = {
     currentPage,
-    isLastPlayerLoaded,
     setCurrentPage,
     perPage: PER_PAGE,
     totalPages
