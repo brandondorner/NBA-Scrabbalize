@@ -1,3 +1,5 @@
+![image](https://user-images.githubusercontent.com/51007432/224230005-761efec4-6c34-4e8f-a79f-b261e1b7cc36.png)
+
 [Live Demo](https://dainty-kelpie-cbc8d7.netlify.app/)
 
 # NBA Scrabbalize
@@ -23,7 +25,7 @@ The technologies and features that are used in this app are but not limited to:
 - React Query
 - React Table (Infinite Scroll, filtering, sorting, pagination)
 - Custom Hooks
-- Chakra CSS
+- Chakra UI
 
 # Available Scripts
 
