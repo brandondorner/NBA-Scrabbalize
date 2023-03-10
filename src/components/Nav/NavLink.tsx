@@ -1,6 +1,8 @@
-import { Link } from '@chakra-ui/react'
+import { Flex, Image, Link } from '@chakra-ui/react'
 import { Link as RouterLink } from 'react-router-dom'
+
 type NavRoute = {
+  icon?: string
   isExternal?: boolean
   title: string
   to: string
@@ -24,14 +26,17 @@ const NavLink = ({ close, route }: NavLinkProps) => (
     width="100%"
     height={'100%'}
   >
-    <RouterLink
-      onClick={close}
-      style={{ display: 'block', height: '100%', padding: '6px 12px', width: '100%' }}
-      target={route.isExternal ? '_blank' : '_self'}
-      to={route.to}
-    >
-      {route.title}
-    </RouterLink>
+    <Flex alignItems={'center'}>
+      {route.icon ? <Image height={'25px'} ml={2} src={route.icon} width="25px" /> : null}
+      <RouterLink
+        onClick={close}
+        style={{ display: 'block', height: '100%', padding: '6px 12px', width: '100%' }}
+        target={route.isExternal ? '_blank' : '_self'}
+        to={route.to}
+      >
+        {route.title}
+      </RouterLink>
+    </Flex>
   </Link>
 )
 
