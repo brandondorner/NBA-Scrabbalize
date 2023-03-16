@@ -21,7 +21,7 @@ const Modal = ({ children, header, isLoading, isOpen, onClose }: Props) => {
   return (
     <ChakraModal isCentered isOpen={isOpen} onClose={onClose} size="lg">
       <ModalOverlay />
-      <ModalContent h={'50%'}>
+      <ModalContent h={'auto'} pb={4}>
         {isLoading ? (
           <Center h="100%">
             <Spinner />
