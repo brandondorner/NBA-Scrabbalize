@@ -3,6 +3,7 @@
 [Live Demo](https://dainty-kelpie-cbc8d7.netlify.app/)
 
 # NBA Scrabbalize
+
 ## Ranking the NBA based off of teams' and players' name converted to Scrabble scores.
 
 Have you ever had that burning desire to know what Scrabble score a NBA player's name would convert to?
@@ -16,16 +17,19 @@ With this app you can now _impress_ all of your friends with the exact score "**
 I paid $1.99 for the api key so I hope you enjoy.
 
 # Technologies Used (For Hiring Manager's Eyes Only)
+
 This is a (work in progress) React app to showcase the skills and code structure of the [developer](https://github.com/brandondorner).
 
 The technologies and features that are used in this app are but not limited to:
+
 - React
 - Typescript
 - React Router
 - React Query
-- React Table (Infinite Scroll, filtering, sorting, pagination)
+- React Table (Infinite Scroll, sorting, pagination)
 - Custom Hooks
 - Chakra UI
+- Zustand (State Management)
 
 # Available Scripts
 
@@ -40,6 +44,7 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ### `npm start`
+
 Run the app with CI disabled
 
 ### `npm test`
