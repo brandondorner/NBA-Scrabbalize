@@ -5,6 +5,7 @@ import { QuestionIcon } from '@chakra-ui/icons'
 import ScoringTooltip from 'components/ScoringToolTip'
 import PlayerAvatar from 'assets/images/player_avatar.png'
 import { Player } from 'types/player'
+import useModalStore from 'state/PlayerStore'
 
 type Props = {
   enableSorting?: boolean
@@ -16,6 +17,7 @@ type ReturnType = {
 
 const usePlayersColumns = ({ enableSorting = false }: Props): ReturnType => {
   const columnHelper = createColumnHelper<Player>()
+  const { setIsPlayerModalOpen, setSelectedPlayerId } = useModalStore()
 
   const columns = useMemo(
     () => [
@@ -28,8 +30,17 @@ const usePlayersColumns = ({ enableSorting = false }: Props): ReturnType => {
       },
       {
         accessorKey: 'headShotUrl',
-        cell: ({ row }: { row: { original: { headShotUrl: string } } }) => (
-          <Image maxW={'90px'} src={row.original.headShotUrl} fallbackSrc={PlayerAvatar} />
+        cell: ({ row }: { row: { original: { headShotUrl: string; id: number } } }) => (
+          <Image
+            cursor={'pointer'}
+            fallbackSrc={PlayerAvatar}
+            maxW={'90px'}
+            onClick={() => {
+              setSelectedPlayerId(row.original.id)
+              setIsPlayerModalOpen(true)
+            }}
+            src={row.original.headShotUrl}
+          />
         ),
         enableSorting: false,
         header: 'Player Image',
