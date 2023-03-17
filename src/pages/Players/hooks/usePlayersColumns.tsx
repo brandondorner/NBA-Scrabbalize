@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table'
-import { Flex, Image, Text, Tooltip } from '@chakra-ui/react'
+import { Button, Flex, Image, Text, Tooltip } from '@chakra-ui/react'
 import { QuestionIcon } from '@chakra-ui/icons'
 import ScoringTooltip from 'components/ScoringToolTip'
 import PlayerAvatar from 'assets/images/player_avatar.png'
@@ -78,6 +78,26 @@ const usePlayersColumns = ({ enableSorting = false }: Props): ReturnType => {
             </Tooltip>
           </Flex>
         )
+      },
+      {
+        cell: ({ row }: { row: { original: { id: number } } }) => (
+          <Button
+            border="solid 1px white"
+            backgroundColor="initial"
+            onClick={() => {
+              setSelectedPlayerId(row.original.id)
+              setIsPlayerModalOpen(true)
+            }}
+            _hover={{
+              color: 'black',
+              bg: 'gray.200'
+            }}
+          >
+            View Player
+          </Button>
+        ),
+        enableSorting,
+        header: 'Actions'
       }
     ],
     [columnHelper]

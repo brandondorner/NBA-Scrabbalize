@@ -11,7 +11,7 @@ const TableContent = ({ table }: Props) => {
     <ChakraTable variant="striped" colorScheme="whiteAlpha">
       <Thead>
         {table.getHeaderGroups().map((headerGroup) => (
-          <Tr backgroundColor={'gray.100'} key={headerGroup.id} position="sticky" top="0">
+          <Tr backgroundColor={'gray.100'} key={headerGroup.id} position="sticky" top="0" zIndex={1}>
             {headerGroup.headers.map((header) => {
               return (
                 <Th
