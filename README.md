@@ -20,16 +20,20 @@ I paid $1.99 for the api key so I hope you enjoy.
 
 This is a (work in progress) React app to showcase the skills and code structure of the [developer](https://github.com/brandondorner).
 
-The technologies and features that are used in this app are but not limited to:
+The technologies are used in this app are but not limited to:
 
 - React
 - Typescript
 - React Router
 - React Query
 - React Table (Infinite Scroll, sorting, pagination)
-- Custom Hooks
 - Chakra UI
 - Zustand (State Management)
+
+Other notable code features
+
+- Lazy Loading
+- Custom Hooks
 
 # Available Scripts
 
