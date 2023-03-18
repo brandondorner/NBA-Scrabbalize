@@ -1,4 +1,3 @@
-import './index.css'
 import { Box, Text } from '@chakra-ui/react'
 import { ColumnDef, getCoreRowModel, getSortedRowModel, SortingState, useReactTable } from '@tanstack/react-table'
 import { useState } from 'react'
@@ -36,7 +35,6 @@ const InfiniteScrollTable = ({ columns, data, paginationValues, totalItems }: Pr
     <>
       <Box border={'solid 1px black'}>
         <InfiniteScroll
-          className="infinite-scroll-table"
           dataLength={data.length}
           hasMore={!isDataFullyLoaded}
           height={550}
