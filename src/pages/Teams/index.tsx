@@ -3,6 +3,7 @@ import { useState } from 'react'
 import VariantButtonGroup from 'components/VariantButtonGroup'
 import Header from 'components/Header'
 import RenderedTeamTable from './RenderedTeamTable'
+import TeamModal from './components/TeamModal'
 
 const Teams = () => {
   const [displayedTable, setDisplayedTable] = useState('basic')
@@ -14,6 +15,7 @@ const Teams = () => {
         <VariantButtonGroup displayedTable={displayedTable} setDisplayedTable={setDisplayedTable} />
         <RenderedTeamTable displayedTable={displayedTable} />
       </Box>
+      <TeamModal />
     </Flex>
   )
 }
