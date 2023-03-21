@@ -5,7 +5,7 @@ import { QuestionIcon } from '@chakra-ui/icons'
 import ScoringTooltip from 'components/ScoringToolTip'
 import PlayerAvatar from 'assets/images/player_avatar.png'
 import { Player } from 'types/player'
-import useModalStore from 'state/PlayerStore'
+import usePlayerStore from 'state/PlayerStore'
 
 type Props = {
   enableSorting?: boolean
@@ -17,7 +17,7 @@ type ReturnType = {
 
 const usePlayersColumns = ({ enableSorting = false }: Props): ReturnType => {
   const columnHelper = createColumnHelper<Player>()
-  const { setIsPlayerModalOpen, setSelectedPlayerId } = useModalStore()
+  const { setIsPlayerModalOpen, setSelectedPlayerId } = usePlayerStore()
 
   const columns = useMemo(
     () => [
