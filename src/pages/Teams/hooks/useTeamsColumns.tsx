@@ -22,7 +22,7 @@ const useTeamsColumns = ({ enableSorting = false }: Props): ReturnType => {
     () => [
       {
         accessorKey: 'ranking',
-        cell: ({ row }: { row: { original: { ranking: number } } }) => row.original.ranking,
+        cell: ({ row }: { row: { original: Team } }) => row.original.ranking,
         enableSorting,
         header: 'Ranking',
         id: 'index'
@@ -48,19 +48,19 @@ const useTeamsColumns = ({ enableSorting = false }: Props): ReturnType => {
       },
       {
         accessorKey: 'name',
-        cell: ({ row }: { row: { original: { name: string } } }) => row.original.name,
+        cell: ({ row }: { row: { original: Team } }) => row.original.name,
         enableSorting,
         header: 'Name'
       },
       {
         accessorKey: 'record',
-        cell: ({ row }: { row: { original: { record: string } } }) => row.original.record,
+        cell: ({ row }: { row: { original: Team } }) => row.original.record,
         enableSorting: false,
         header: 'Record '
       },
       {
         accessorKey: 'score',
-        cell: ({ row }: { row: { original: { score: number } } }) => row.original.score,
+        cell: ({ row }: { row: { original: Team } }) => row.original.score,
         enableSorting,
         header: (
           <Flex alignItems={'center'} gap={2}>
