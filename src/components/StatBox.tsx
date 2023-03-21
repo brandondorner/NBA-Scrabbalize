@@ -7,7 +7,7 @@ type Props = {
 
 const StatBox = ({ children, title }: Props) => {
   return (
-    <Flex justifyContent={'center'}>
+    <Flex justifyContent={'center'} width="100%">
       <Box border={'1px solid black'} borderRadius={10} textAlign="center" width={'95%'}>
         <Box backgroundColor={'gray.800'} borderTopRadius={8} color="white" p={2}>
           <Text>{title}</Text>
