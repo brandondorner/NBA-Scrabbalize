@@ -5,8 +5,12 @@ import axiosClient from '../network/axiosClient'
 type Props = {
   id: number
 }
+type ReturnValue = {
+  data: Player
+  isLoading: boolean
 
-const useGetPlayer = ({ id }: Props): { data: Player; isLoading: boolean } => {
+}
+const useGetPlayer = ({ id }: Props): ReturnValue => {
   const response = useQuery({
     queryKey: ['player', id],
     queryFn: async () => await axiosClient.get(`/players/${id}`)
