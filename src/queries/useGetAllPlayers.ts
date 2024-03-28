@@ -4,6 +4,7 @@ import axiosClient from '../network/axiosClient'
 
 type ReturnValue = {
   data: Player[]
+  isError: boolean
   isLoading: boolean
 }
 
@@ -15,6 +16,7 @@ const useGetAllPlayers = (): ReturnValue => {
 
   return {
     data: response.data?.data,
+    isError: response.isError,
     isLoading: response.isLoading
   }
 }

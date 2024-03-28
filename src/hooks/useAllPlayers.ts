@@ -10,6 +10,7 @@ import useGetAllPlayers from '../queries/useGetAllPlayers'
 const PER_PAGE = 25
 
 type ReturnValue = {
+  isError: boolean
   isLoading: boolean
   paginationValues: PaginationValues
   players: Player[]
@@ -28,7 +29,7 @@ const useAllPlayers = ({ displayAllData }: Props): ReturnValue => {
     return Math.ceil(totalPlayers / PER_PAGE)
   }, [totalPlayers, PER_PAGE])
 
-  const { data, isLoading } = useGetAllPlayers()
+  const { data, isError, isLoading } = useGetAllPlayers()
 
   // The api has some bad data we need to filter through
   const filteredNullPlayers = filterNullData({ data, filterParam: 'firstName' })
@@ -59,6 +60,7 @@ const useAllPlayers = ({ displayAllData }: Props): ReturnValue => {
 
   return {
     paginationValues,
+    isError,
     isLoading,
     players: displayedPlayers,
     totalPlayers
