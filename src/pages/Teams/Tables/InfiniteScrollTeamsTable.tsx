@@ -2,15 +2,20 @@ import Loading from 'components/Loading'
 import InfiniteScrollTable from 'components/Table/InfiniteScrollTable'
 import useAllTeams from 'hooks/useAllTeams'
 import useTeamsColumns from '../hooks/useTeamsColumns'
+import ApiErrorDisplay from 'components/ApiErrorDisplay'
 
 const InfiniteScrollTeamsTable = () => {
   const { columns } = useTeamsColumns({})
-  const { isLoading, teams, paginationValues, totalTeams } = useAllTeams({ displayAllData: true })
+  const { isError, isLoading, teams, paginationValues, totalTeams } = useAllTeams({ displayAllData: true })
 
   // maybe pass this into the table component below.
   // so that the table frame loads and shows the loading icon inside the table
   if (isLoading) {
     return <Loading />
+  }
+
+  if (isError) {
+    return <ApiErrorDisplay />
   }
 
   return (

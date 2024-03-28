@@ -9,6 +9,7 @@ import useGetAllTeams from '../queries/useGetAllTeams'
 const PER_PAGE = 25
 
 type ReturnValue = {
+  isError: boolean
   isLoading: boolean
   paginationValues: PaginationValues
   teams: Team[]
@@ -27,7 +28,7 @@ const useAllTeams = ({ displayAllData }: Props): ReturnValue => {
     return Math.ceil(totalTeams / PER_PAGE)
   }, [totalTeams, PER_PAGE])
 
-  const { data, isLoading } = useGetAllTeams()
+  const { data, isError, isLoading } = useGetAllTeams()
 
   const paginationValues = {
     currentPage,
@@ -53,6 +54,7 @@ const useAllTeams = ({ displayAllData }: Props): ReturnValue => {
 
   return {
     paginationValues,
+    isError,
     isLoading,
     teams: displayedTeams,
     totalTeams
