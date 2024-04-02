@@ -13,6 +13,7 @@ const NavDropdown = () => {
               <MenuButton
                 as={Button}
                 backgroundColor="inherit"
+                color={'white'}
                 _expanded={{
                   bg: 'gray.200',
                   color: 'black'

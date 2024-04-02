@@ -14,6 +14,7 @@ const VariantButton = ({ displayedTable, setDisplayedTable, title, type }: Varia
       color: 'black',
       bg: 'gray.200'
     }}
+    color={'white'}
     colorScheme="gray"
     onClick={() => {
       setDisplayedTable(type)
