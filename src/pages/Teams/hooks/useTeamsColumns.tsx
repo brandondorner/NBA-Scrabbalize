@@ -76,6 +76,7 @@ const useTeamsColumns = ({ enableSorting = false }: Props): ReturnType => {
           <Button
             border="solid 1px white"
             backgroundColor="initial"
+            color={'white'}
             onClick={() => {
               setSelectedTeam(row.original)
               setIsTeamModalOpen(true)
