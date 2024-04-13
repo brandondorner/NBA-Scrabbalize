@@ -8,3 +8,7 @@ export type Team = {
   score: number
   teamLogoUrl: string
 }
+
+export type TeamDataResponse = {
+  team: Team
+}

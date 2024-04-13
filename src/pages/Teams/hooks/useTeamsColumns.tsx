@@ -38,7 +38,7 @@ const useTeamsColumns = ({ enableSorting = false }: Props): ReturnType => {
               setSelectedTeam(row.original)
               setIsTeamModalOpen(true)
             }}
-            src={row.original.teamLogoUrl}
+            src={row.original.logos[0].href}
           />
         ),
         enableSorting: false,
@@ -48,15 +48,9 @@ const useTeamsColumns = ({ enableSorting = false }: Props): ReturnType => {
       },
       {
         accessorKey: 'name',
-        cell: ({ row }: { row: { original: Team } }) => row.original.name,
+        cell: ({ row }: { row: { original: Team } }) => row.original.displayName,
         enableSorting,
         header: 'Name'
-      },
-      {
-        accessorKey: 'record',
-        cell: ({ row }: { row: { original: Team } }) => row.original.record,
-        enableSorting: false,
-        header: 'Record '
       },
       {
         accessorKey: 'score',

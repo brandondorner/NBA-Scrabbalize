@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from 'react'
 import { PaginationValues } from 'types/paginationValues'
 import { Team } from 'types/team'
 import extractData from 'util/extractData'
-import filterNullData from 'util/filterNullData'
 import scrabbalizeWord from 'util/scrabbalizeWord'
 import useGetAllTeams from '../queries/useGetAllTeams'
 
@@ -30,6 +29,10 @@ const useAllTeams = ({ displayAllData }: Props): ReturnValue => {
 
   const { data, isError, isLoading } = useGetAllTeams()
 
+  useEffect(() => {
+    setTotalTeams(data?.length)
+  }, [data])
+
   const paginationValues = {
     currentPage,
     setCurrentPage,
@@ -37,15 +40,14 @@ const useAllTeams = ({ displayAllData }: Props): ReturnValue => {
     totalPages
   }
 
-  const filteredTeams = filterNullData({ data, filterParam: 'name' })
+  const teamsWithScore = useMemo(() => {
+    return data
+      ? data.map((team) => {
+          return { ...team.team, score: scrabbalizeWord(team.team.displayName) }
+        })
+      : []
+  }, [data])
 
-  useEffect(() => {
-    setTotalTeams(filteredTeams.length)
-  }, [filteredTeams])
-
-  const teamsWithScore = filteredTeams.map((team) => {
-    return { ...team, score: scrabbalizeWord(team.name) }
-  })
   const sortedTeams = teamsWithScore.sort((team1, team2) => (team1.score < team2.score ? 1 : -1))
   const sortedTeamsWithRankings = sortedTeams.map((team, index) => ({ ...team, ranking: index + 1 }))
   const displayedTeams = sortedTeamsWithRankings

@@ -1,17 +1,12 @@
 /* eslint-disable no-console */
 import axios, { type AxiosError } from 'axios'
 
-// Since all of our api calls will be made to RapidAPI I feel comfortable
-// setting our baseUrl to rapidApi here.
-// Same with the API Keys
 const axiosClient = axios.create({
-  baseURL: 'https://nba-player-individual-stats.p.rapidapi.com',
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json',
-    'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
-    'X-RapidAPI-Host': process.env.REACT_APP_RAPID_API_HOST
-  }
+    'Content-Type': 'application/json'
+  },
+  timeout: 5000
 })
 
 // Handle errors
