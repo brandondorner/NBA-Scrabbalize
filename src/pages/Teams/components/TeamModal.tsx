@@ -9,7 +9,7 @@ const TeamModal = () => {
   const { isTeamModalOpen, selectedTeam, setIsTeamModalOpen } = useTeamStore()
 
   const teamNameObject = useMemo(() => {
-    const splitName = selectedTeam?.name.split(' ')
+    const splitName = selectedTeam?.displayName.split(' ')
     return { location: splitName?.[0], name: splitName?.[1] }
   }, [selectedTeam])
 

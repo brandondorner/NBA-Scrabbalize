@@ -14,9 +14,9 @@ const TeamStats = ({ team }: Props) => {
       <Image fallbackSrc={PlayerAvatar} h="max-content" w={'90%'} src={team.teamLogoUrl} />
       <StatBox title="TEAM STATS">
         <Flex w="100%">
-          <StatBlock stat={team.conference} statName="Conference" />
-          <StatBlock stat={team.record} statName="Record" />
           <StatBlock stat={team.score} statName="Scrabble Score" />
+          <StatBlock stat={team.ranking} statName="Ranking" />
+          <StatBlock stat={team.abbreviation} statName="Abbreviation" />
         </Flex>
       </StatBox>
     </Flex>
