@@ -1,3 +1,5 @@
+# The site is currently down while I find a new NBA api as the one I used before no longer exists.
+
 ![image](https://user-images.githubusercontent.com/51007432/224230005-761efec4-6c34-4e8f-a79f-b261e1b7cc36.png)
 
 [Live Demo](https://dainty-kelpie-cbc8d7.netlify.app/)
