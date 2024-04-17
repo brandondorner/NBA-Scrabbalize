@@ -3,7 +3,7 @@ import { ColumnDef, createColumnHelper } from '@tanstack/react-table'
 import { Button, Flex, Image, Text, Tooltip } from '@chakra-ui/react'
 import { QuestionIcon } from '@chakra-ui/icons'
 import ScoringTooltip from 'components/ScoringToolTip'
-import PlayerAvatar from 'assets/images/player_avatar.png'
+import TeamAvatar from 'assets/images/team.webp'
 import { Team } from 'types/team'
 import useTeamStore from 'state/TeamStore'
 type Props = {
@@ -32,8 +32,9 @@ const useTeamsColumns = ({ enableSorting = false }: Props): ReturnType => {
         cell: ({ row }: { row: { original: Team } }) => (
           <Image
             cursor={'pointer'}
-            fallbackSrc={PlayerAvatar}
-            maxW={'90px'}
+            fallbackSrc={TeamAvatar}
+            height={'90px'}
+            width={'90px'}
             onClick={() => {
               setSelectedTeam(row.original)
               setIsTeamModalOpen(true)
