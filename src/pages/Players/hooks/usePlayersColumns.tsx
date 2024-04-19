@@ -84,6 +84,7 @@ const usePlayersColumns = ({ enableSorting = false }: Props): ReturnType => {
           <Button
             border="solid 1px white"
             backgroundColor="initial"
+            color={'white'}
             onClick={() => {
               setSelectedPlayerId(row.original.id)
               setIsPlayerModalOpen(true)
