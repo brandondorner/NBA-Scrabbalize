@@ -14,7 +14,7 @@ const PlayerInfo = ({ player }: Props) => {
       <Box>
         <PlayerInfoBlock body={player.team} heading="Team" />
         <PlayerInfoBlock body={player.score} heading="Scrabble Score" />
-        <PlayerInfoBlock body={player.rank} heading="Ranking" />
+        <PlayerInfoBlock body={player.ranking} heading="Ranking" />
       </Box>
     </Flex>
   )

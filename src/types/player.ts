@@ -20,7 +20,7 @@ export type Player = {
   player: 'Luka Doncic'
   player_id: number
   pts: number
-  rank: number
+  ranking: number
   reb: number
   score: number
   stl: number
