@@ -6,6 +6,7 @@ import ScoringTooltip from 'components/ScoringToolTip'
 import TeamAvatar from 'assets/images/team.webp'
 import { Team } from 'types/team'
 import useTeamStore from 'state/TeamStore'
+
 type Props = {
   enableSorting?: boolean
 }

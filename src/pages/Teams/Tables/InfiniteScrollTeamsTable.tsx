@@ -1,8 +1,8 @@
 import Loading from 'components/Loading'
 import InfiniteScrollTable from 'components/Table/InfiniteScrollTable'
 import useAllTeams from 'hooks/useAllTeams'
-import useTeamsColumns from '../hooks/useTeamsColumns'
 import ApiErrorDisplay from 'components/ApiErrorDisplay'
+import useTeamsColumns from '../hooks/useTeamsColumns'
 
 const InfiniteScrollTeamsTable = () => {
   const { columns } = useTeamsColumns({})

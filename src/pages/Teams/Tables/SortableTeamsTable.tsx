@@ -1,8 +1,8 @@
 import Loading from 'components/Loading'
 import SortableTable from 'components/Table/SortableTable'
 import useAllTeams from 'hooks/useAllTeams'
-import useTeamsColumns from '../hooks/useTeamsColumns'
 import ApiErrorDisplay from 'components/ApiErrorDisplay'
+import useTeamsColumns from '../hooks/useTeamsColumns'
 
 const SortableTeamsTable = () => {
   const { columns } = useTeamsColumns({ enableSorting: true })

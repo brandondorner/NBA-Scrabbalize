@@ -41,11 +41,7 @@ const useAllTeams = ({ displayAllData }: Props): ReturnValue => {
   }
 
   const teamsWithScore = useMemo(() => {
-    return data
-      ? data.map((team) => {
-          return { ...team.team, score: scrabbalizeWord(team.team.displayName) }
-        })
-      : []
+    return data ? data.map((team) => ({ ...team.team, score: scrabbalizeWord(team.team.displayName) })) : []
   }, [data])
 
   const sortedTeams = teamsWithScore.sort((team1, team2) => (team1.score < team2.score ? 1 : -1))

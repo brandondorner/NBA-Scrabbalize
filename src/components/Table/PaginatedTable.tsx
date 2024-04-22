@@ -1,4 +1,4 @@
-import { Box, Button, Flex, FormControl, FormErrorMessage, FormLabel, IconButton, Input, Text } from '@chakra-ui/react'
+import { Box, Flex, FormControl, FormErrorMessage, FormLabel, IconButton, Input, Text } from '@chakra-ui/react'
 import { ColumnDef, getCoreRowModel, getSortedRowModel, SortingState, useReactTable } from '@tanstack/react-table'
 import { Fragment, useEffect, useState } from 'react'
 import { Player } from 'types/player'
@@ -96,7 +96,7 @@ const PaginatedTable = ({ columns, data, paginationValues }: Props) => {
             onClick={() => {
               setCurrentPage(1)
             }}
-            _hover={{ bg: "gray.200", color: "black" }}
+            _hover={{ bg: 'gray.200', color: 'black' }}
             size={'sm'}
           />
           <IconButton
@@ -108,7 +108,7 @@ const PaginatedTable = ({ columns, data, paginationValues }: Props) => {
             onClick={() => {
               setCurrentPage(currentPage - 1)
             }}
-            _hover={{ bg: "gray.200", color: "black" }}
+            _hover={{ bg: 'gray.200', color: 'black' }}
             size={'sm'}
           />
           <IconButton
@@ -120,7 +120,7 @@ const PaginatedTable = ({ columns, data, paginationValues }: Props) => {
             onClick={() => {
               setCurrentPage(currentPage + 1)
             }}
-            _hover={{ bg: "gray.200", color: "black" }}
+            _hover={{ bg: 'gray.200', color: 'black' }}
             size={'sm'}
           />
           <IconButton
@@ -132,7 +132,7 @@ const PaginatedTable = ({ columns, data, paginationValues }: Props) => {
             onClick={() => {
               setCurrentPage(totalPages)
             }}
-            _hover={{ bg: "gray.200", color: "black" }}
+            _hover={{ bg: 'gray.200', color: 'black' }}
             size={'sm'}
           />
           <Text paddingLeft={2}>

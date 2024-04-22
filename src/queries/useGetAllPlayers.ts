@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { Player } from 'types/player'
-import axiosClient from '../network/axiosClient'
 import { useMemo } from 'react'
+import axiosClient from '../network/axiosClient'
 
 type ReturnValue = {
   data: Player[]
