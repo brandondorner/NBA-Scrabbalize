@@ -2,8 +2,6 @@ import { useEffect, useMemo, useState } from 'react'
 import { Player } from 'types/player'
 import { PaginationValues } from 'types/paginationValues'
 import extractData from 'util/extractData'
-import filterNullData from 'util/filterNullData'
-import filterDuplicatePlayerData from 'util/filterPlayerDuplicate'
 import scrabbalizeWord from 'util/scrabbalizeWord'
 import useGetAllPlayers from '../queries/useGetAllPlayers'
 
@@ -31,21 +29,19 @@ const useAllPlayers = ({ displayAllData }: Props): ReturnValue => {
 
   const { data, isError, isLoading } = useGetAllPlayers()
 
-  // The api has some bad data we need to filter through
-  const filteredNullPlayers = filterNullData({ data, filterParam: 'firstName' })
-  const filteredActivePlayers = filterNullData({ data: filteredNullPlayers, filterParam: 'team' })
-  const filteredPlayers = filterDuplicatePlayerData(filteredActivePlayers)
-
   useEffect(() => {
-    setTotalPlayers(filteredPlayers.length)
-  }, [filteredPlayers])
+    setTotalPlayers(data.length)
+  }, [data])
 
-  const playersWithNameAndScore = filteredPlayers.map((player) => {
-    const name = `${player.firstName} ${player.lastName}`
-    return { ...player, name, score: scrabbalizeWord(name) }
+  const playersWithPhotoAndScore = data.map((player) => {
+    return {
+      ...player,
+      headShotUrl: `https://cdn.nba.com/headshots/nba/latest/1040x760/${player.player_id}.png`,
+      score: scrabbalizeWord(player.player)
+    }
   })
 
-  const sortedPlayers = playersWithNameAndScore.sort((player1, player2) => (player1.score < player2.score ? 1 : -1))
+  const sortedPlayers = playersWithPhotoAndScore.sort((player1, player2) => (player1.score < player2.score ? 1 : -1))
   const sortedPlayersWithRankings = sortedPlayers.map((player, index) => ({ ...player, ranking: index + 1 }))
   const displayedPlayers = data
     ? extractData({ currentPage, data: sortedPlayersWithRankings, displayAllData, perPage: PER_PAGE })

@@ -1,23 +1,30 @@
 export type Player = {
-  age: string
-  carrerAssists: number // this is a typo from the api creator
-  careerBlocks: number
-  careerPercentageFieldGoal: number
-  careerPercentageFreethrow: number
-  careerPercentageThree: number
-  careerPoints: number
-  careerRebounds: number
-  careerTurnovers: number
-  dateOfBirth: string
-  firstName: string
+  ast: number
+  blk: number
+  dreb: number
+  eff: number
+  fg3_pct: number
+  fg3a: number
+  fg3m: number
+  fg_pct: number
+  fga: number
+  fgm: number
+  ft_pct: number
+  fta: number
+  ftm: number
+  gp: number
   headShotUrl: string
-  height: string
   id: number
-  jerseyNumber: string
-  lastName: string
-  name: string
-  position: string
+  min: number
+  oreb: number
+  player: 'Luka Doncic'
+  player_id: number
+  pts: number
+  rank: number
+  reb: number
   score: number
-  team: string | null
-  weight: string
+  stl: number
+  team: string
+  team_id: number
+  tov: number
 }

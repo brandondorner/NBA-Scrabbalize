@@ -17,7 +17,7 @@ type ReturnType = {
 
 const usePlayersColumns = ({ enableSorting = false }: Props): ReturnType => {
   const columnHelper = createColumnHelper<Player>()
-  const { setIsPlayerModalOpen, setSelectedPlayerId } = usePlayerStore()
+  const { setIsPlayerModalOpen, setSelectedPlayer } = usePlayerStore()
 
   const columns = useMemo(
     () => [
@@ -30,13 +30,13 @@ const usePlayersColumns = ({ enableSorting = false }: Props): ReturnType => {
       },
       {
         accessorKey: 'headShotUrl',
-        cell: ({ row }: { row: { original: { headShotUrl: string; id: number } } }) => (
+        cell: ({ row }: { row: { original: Player } }) => (
           <Image
             cursor={'pointer'}
             fallbackSrc={PlayerAvatar}
             maxW={'90px'}
             onClick={() => {
-              setSelectedPlayerId(row.original.id)
+              setSelectedPlayer(row.original)
               setIsPlayerModalOpen(true)
             }}
             src={row.original.headShotUrl}
@@ -48,27 +48,27 @@ const usePlayersColumns = ({ enableSorting = false }: Props): ReturnType => {
         size: 10
       },
       {
-        accessorKey: 'name',
+        accessorKey: 'player',
         // maybe make all of these types Partial<Player> or something
-        cell: ({ row }: { row: { original: { name: string } } }) => row.original.name,
+        cell: ({ row }: { row: { original: Player } }) => row.original.player,
         enableSorting,
         header: 'Name'
       },
       {
-        accessorKey: 'position',
-        cell: ({ row }: { row: { original: { position: string } } }) => row.original.position,
+        accessorKey: 'ppg',
+        cell: ({ row }: { row: { original: Player } }) => row.original.pts,
         enableSorting,
-        header: 'Position'
+        header: 'PPG'
       },
       {
         accessorKey: 'team',
-        cell: ({ row }: { row: { original: { team: string } } }) => row.original.team,
+        cell: ({ row }: { row: { original: Player } }) => row.original.team,
         enableSorting,
         header: 'Team'
       },
       {
         accessorKey: 'score',
-        cell: ({ row }: { row: { original: { score: number } } }) => row.original.score,
+        cell: ({ row }: { row: { original: Player } }) => row.original.score,
         enableSorting,
         header: (
           <Flex alignItems={'center'} gap={2}>
@@ -80,13 +80,13 @@ const usePlayersColumns = ({ enableSorting = false }: Props): ReturnType => {
         )
       },
       {
-        cell: ({ row }: { row: { original: { id: number } } }) => (
+        cell: ({ row }: { row: { original: Player } }) => (
           <Button
             border="solid 1px white"
             backgroundColor="initial"
             color={'white'}
             onClick={() => {
-              setSelectedPlayerId(row.original.id)
+              setSelectedPlayer(row.original)
               setIsPlayerModalOpen(true)
             }}
             _hover={{
