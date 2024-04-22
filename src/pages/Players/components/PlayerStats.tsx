@@ -11,14 +11,14 @@ const PlayerStats = ({ player }: Props) => {
   return (
     <StatBox title="CAREER STATS">
       <Flex w="100%">
-        <StatBlock stat={player.careerPoints.toFixed(1)} statName="Points" />
-        <StatBlock stat={player.careerRebounds.toFixed(1)} statName="Rebounds" />
-        <StatBlock stat={player.carrerAssists.toFixed(1)} statName="Assists" />
+        <StatBlock stat={player.pts} statName="PPG" />
+        <StatBlock stat={player.reb} statName="Rebounds" />
+        <StatBlock stat={player.ast} statName="Assists" />
       </Flex>
       <Flex w="100%">
-        <StatBlock isPercentage={true} stat={player.careerPercentageThree.toFixed(1)} statName="3P %" />
-        <StatBlock isPercentage={true} stat={player.careerPercentageFieldGoal.toFixed(1)} statName="FG %" />
-        <StatBlock isPercentage={true} stat={player.careerPercentageFreethrow.toFixed(1)} statName="FT %" />
+        <StatBlock isPercentage={true} stat={(player.fg3_pct * 100).toFixed(1)} statName="3P %" />
+        <StatBlock isPercentage={true} stat={(player.fg_pct * 100).toFixed(1)} statName="FG %" />
+        <StatBlock isPercentage={true} stat={(player.ft_pct * 100).toFixed(1)} statName="FT %" />
       </Flex>
     </StatBox>
   )

@@ -1,17 +1,18 @@
+import { Player } from 'types/player'
 import { create } from 'zustand'
 
 type Props = {
   isPlayerModalOpen: boolean
-  selectedPlayerId: number
+  selectedPlayer: Player | null
   setIsPlayerModalOpen: (isOpen: boolean) => void
-  setSelectedPlayerId: (playerId: number) => void
+  setSelectedPlayer: (player: Player) => void
 }
 
 const usePlayerStore = create<Props>((set) => ({
   isPlayerModalOpen: false,
-  selectedPlayerId: 0,
-  setSelectedPlayerId: (playerId) => {
-    set((state) => ({ ...state, selectedPlayerId: playerId }))
+  selectedPlayer: null,
+  setSelectedPlayer: (player) => {
+    set((state) => ({ ...state, selectedPlayer: player }))
   },
   setIsPlayerModalOpen: (isOpen) => {
     set((state) => ({ ...state, isPlayerModalOpen: isOpen }))
